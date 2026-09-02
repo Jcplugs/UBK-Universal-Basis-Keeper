@@ -1,0 +1,102 @@
+UBK / GOBLIN INTELLIGENCE v1.1.0
+CHANGELOG
+=================================
+
+v1.1.0 is a major feature and usability release built on the original public RC foundation. The original release already included UBK acquisition-cost tracking for TSM crafting materials, safe TSM onboarding/review, Radar, Market Inspector, Watchlist, Cost Review, and Cost Coverage. The changes below describe what has been added or substantially improved since that baseline.
+
+RELEASE VERSIONING
+------------------
+- Release versioning standardized: beginning with v1.1.0, UBK / Goblin Intelligence uses a simplified sequential version and filename format for future releases.
+
+BROADER UBK INVENTORY COVERAGE
+------------------------------
+- UBK is no longer limited to items native to TSM's crafting-material list.
+- Purchased resale stock, reputation items, investment inventory, keys, gear, and other purchased items can carry a real UBK acquisition basis without being forced into TSM's crafting-material system.
+- UBK distinguishes known-cost units from unresolved units instead of silently treating uncertain inventory as free.
+- Personal UBK basis information can appear directly in normal item tooltips.
+- Existing trusted basis remains useful even when an item is temporarily out of stock.
+
+LOOT / FARMED INVENTORY HANDLING
+--------------------------------
+- UBK now watches actual loot-window activity instead of treating every unexplained inventory increase as a purchase or free acquisition.
+- Looted/farmed inventory is kept distinct from purchase evidence.
+- First-seen loot with no defensible starting basis is routed to human review rather than assigned an invented cost.
+- Established tracked items can absorb supported loot/farmed units while preserving the distinction in provenance and detail views.
+
+SHREDDER
+--------
+- Goblin Intelligence now includes a first-class Shredder workspace for disenchant-based gold making.
+- Shredder can build a cached candidate list from items known through TSM/UBK and surface opportunities for player review.
+- Candidate rows provide an obvious Search TSM action for live Auction House confirmation.
+- Market Inspector can show expected disenchant-output context for eligible TBC items.
+- Shredder remains decision support only: it never buys or disenchants automatically.
+
+OWNED SHREDDER PIPELINE
+-----------------------
+- Shredder can follow disenchantable gear already owned by the player.
+- Owned items can be organized into practical states such as READY, NEEDS MAIL, IN TRANSIT, STORED, and LISTED.
+- The designated Shredder character is configurable by the user.
+- Cross-character mail is treated as owned inventory movement rather than a sale followed by a free acquisition.
+
+DISENCHANT TRANSFORMATION ACCOUNTING
+------------------------------------
+- When a tracked item is actually disenchanted, UBK can transfer the source item's supported acquisition cost into the actual enchanting materials produced.
+- Shred History records the source item, actual output, and cost-transfer context.
+- If the source item's cost is unresolved, UBK keeps the resulting uncertainty instead of inventing a clean-looking basis.
+
+COST COVERAGE IS NOW AN ACTIVE WORKSPACE
+----------------------------------------
+- Cost Coverage category counts are clickable filters: ALL, READY, PARTIAL / SAFE, UNKNOWN COST, REVIEW, FORMULA-PROTECTED, and ZERO-STOCK.
+- Hover help explains that clicking a category filters the list below.
+- PARTIAL / SAFE rows now include an obvious Resolve Unknown action.
+- Resolve Unknown opens a simple item-specific popup showing the item icon, tooltip, known/owned/unresolved counts, and an explanation of what PARTIAL / SAFE means.
+- The user enters a per-unit cost only for the unresolved quantity; already-known units are not rebased.
+- Resolution uses a two-stage Review -> Confirm Resolve workflow.
+- Before commit, the confirmation shows the unresolved quantity, entered price, current basis, and projected new blended basis.
+- The projection is recalculated immediately before commit. If the underlying inventory/basis changed while the dialog was open, the stale confirmation is rejected and the user must review the updated numbers.
+- Coverage refreshes after a successful resolution so items visibly move out of PARTIAL / SAFE when they become READY.
+
+GOBLIN INTELLIGENCE — EASIER ACCESS
+-----------------------------------
+- New UBK / GI Home landing page provides one consistent starting point for the addon suite.
+- Home shows a quick health summary and direct links into the main UBK and GI workflows.
+- Standalone GI and UBK minimap launchers are available without opening the Auction House or a profession window.
+- Left-click and right-click use the same simple behavior: open Home.
+- The minimap tooltip simply explains that clicking opens the UBK / GI interface.
+- /gi with no argument opens the same Home page.
+- The old GI launcher on the profession/TSM window has been removed.
+
+GOBLIN INTELLIGENCE — WINDOW / UI IMPROVEMENTS
+-----------------------------------------------
+- Escape now closes Goblin Intelligence like a normal WoW interface window.
+- Shift + drag resizes the GI window.
+- Pagination adapts to smaller window heights instead of drawing rows off-screen.
+- Item-driven GI views now use real TBC item icons where the client supplies them.
+- Hovering item icons provides the normal item tooltip.
+- The interface has been rebuilt toward a more WoW-native Goblin Workshop presentation with brass/gold framing, a goblin emblem, clearer navigation, and the fortune charm along the bottom.
+- The visual treatment is decorative only; actual item/market content comes from TBC Classic, UBK, and TSM data.
+
+GI RELIABILITY / WORKFLOW HARDENING
+-----------------------------------
+- Cost Coverage handling was hardened for empty or incomplete categories.
+- Pagination behavior across list pages was repaired and made reusable.
+- Shredder's candidate scan was reworked to avoid relying on inaccessible TSM internals.
+- Candidate scanning can build incrementally from information available to companion addons.
+- Expected disenchant-output handling was made more resilient for the same reason.
+- Live confirmation remains intentionally in the player's hands.
+
+PUBLIC-DISTRIBUTION SAFETY
+--------------------------
+- No SavedVariables are included.
+- No donor/player purchase archive is included.
+- No preset inventory, item bases, watchlists, realm/faction state, character lists, groups, operations, or personal market history are included.
+- The Shredder character is selected by the recipient.
+- Existing TSM users receive an installer that does not replace TSM/AppHelper.
+- A separate fresh-install path includes the validated TSM core and a sanitized AppHelper shell with no donor market data.
+
+CORE SAFETY PRINCIPLES RETAINED
+-------------------------------
+- Unknown cost remains unknown until supported by evidence or explicitly reviewed.
+- UBK owns acquisition accounting; GI presents workflows and market context.
+- GI remains player-controlled and advisory.
+- UBK/GI do not automatically buy, bid, mail, disenchant, post, cancel, or craft.
