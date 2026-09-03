@@ -8,7 +8,6 @@ That foundation is still here. The big difference is that UBK can now follow muc
 
 ## A new, easier Goblin Intelligence interface
 
-![Goblin Intelligence v1.1.0 UI preview](UBK-Goblin-Intelligence-v1.1.0-GI-Preview.png)
 
 One of the most visible changes in v1.1.0 is the redesigned GI experience.
 
