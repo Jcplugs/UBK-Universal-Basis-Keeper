@@ -6,7 +6,7 @@ Universal Basis Keeper (UBK) and Goblin Intelligence (GI) are designed to sit **
 
 The project is intentionally conservative about automation. It does not buy, bid, post, cancel, mail, disenchant, or craft for you. The goal is to improve the information available **before you make the decision yourself**.
 
-Current public release: **v1.1.7**
+Current public release: **[v1.1.11](https://github.com/Jcplugs/UBK-Goblin/releases/tag/UBK%2FGI-1.1.11)**
 
 Target client: **TBC Anniversary / TBC Classic — Interface 20506**
 
@@ -14,10 +14,10 @@ Target client: **TBC Anniversary / TBC Classic — Interface 20506**
 
 ## What the suite contains
 
-The public repository contains three addons:
+The public release contains three addon folders:
 
 - **UniversalBasisKeeper** — acquisition-basis, provenance, coverage, purchase-history interpretation, loot handling, mailbox tracking, and transformation accounting.
-- **GoblinIntelligence** — the visual intelligence layer: Home, Radar, Market Inspector, Watchlist, Shredder, Cost Review, Cost Coverage, Settings, and the visible ★ Cross-Pressure preview.
+- **GoblinIntelligence** — the visual intelligence layer: Home, Radar, Market Inspector, Watchlist, Shredder, Cost Review, Cost Coverage, Settings, and visible synthetic previews of the starred workspaces.
 - **TSMMyCostBootstrap** — safely installs the package's TSM custom-source chain and profile settings without replacing an existing TSM profile or importing somebody else's groups and operations.
 
 ### Required external addons / data
@@ -81,7 +81,11 @@ The UI is designed around **decision support rather than transaction automation*
 
 Home is the central landing page. It provides a health summary and shortcuts into the primary workflows so you do not need to remember where a particular feature lives.
 
-From Home you can reach Cost Coverage, Cost Review, Market Inspector, Radar, ★ Cross-Pressure, Shredder, Watchlist, and Settings. Home can also expose useful status and user-triggered refresh actions such as Shredder AH stock updates.
+From Home you can reach Cost Coverage, Cost Review, Market Inspector, Radar, Shredder, Watchlist, Settings, and the starred Position Intelligence and Cross-Pressure previews. Home also exposes useful status and user-triggered refresh actions such as Shredder AH stock updates.
+
+The prominent **Import Newest TSM Data** action provides one clear starting point. It processes the TSM/AppHelper information currently loaded by WoW, refreshes UBK accounting, captures the available market context, routes unresolved acquisition costs through human review when necessary, and opens Radar when the workflow is ready.
+
+If the TSM desktop application updated AppHelper after you entered the game, use `/reload` before importing so WoW can load the updated SavedVariables.
 
 ## Radar
 
@@ -89,7 +93,9 @@ Radar is a **user-triggered Auction House investigation** rather than an always-
 
 It uses the available UBK and TSM context to surface candidates worth inspecting. Confirmed opportunities can be filtered, inspected, or added to the Watchlist. GI never buys anything on your behalf.
 
-The thresholds used for candidate ranking and labels can be adjusted in Settings. Those settings affect GI's interpretation of market opportunities; they do not change UBK acquisition basis or TSM `mycost`.
+Radar's hunt controls are organized as **High-End Materials**, **Common Market Flips**, **Uncommon & Rare**, and **Full Market Sweep**. The thresholds used for candidate ranking and labels can be adjusted in Settings. Those settings affect GI's interpretation of market opportunities; they do not change UBK acquisition basis or TSM `mycost`.
+
+Primary navigation, Home actions, Radar hunts and filters, item surfaces, and other important workflow controls include hover explanations so the interface can teach its own terminology and behavior.
 
 ## Market Inspector
 
@@ -158,17 +164,27 @@ Already-known units are not rebased merely because the unresolved portion is bei
 
 ---
 
+# ★ Position Intelligence
+
+The public interface includes a visible **★ Position Intelligence** page built as a native Lua-rendered showcase.
+
+Its fictional position demonstrates how acquisition basis, current holdings, invested exposure, recent market context, basis-improvement references, and fee-aware exit planning can be presented together. Every item name, realm name, and value shown on this page is invented for the demonstration.
+
+The public package does not contain live position synthesis, thresholds, model logic, or actionable position recommendations. The showcase cannot be converted into the live workspace because that engine is not part of the public release.
+
+---
+
 # ★ Cross-Pressure
 
 The public interface includes a visible **★ Cross-Pressure** workspace so users can see the concept and the style of information the feature is designed to present.
 
-In the public repository it is an **invitation-only locked preview**. The demo page uses fictional item names, fictional prices, and non-actionable examples. The public source does not contain the live item relationships, learned evidence, live trigger/entry/scale/exit calculations, or actionable decision engine used by granted-access installations.
+In the public release it is an **invitation-only locked preview**. The page describes the named-material, event-education, shared-recipe, and linked-market inspection workflow without exposing live item relationships, learned evidence, trigger/entry/scale/exit calculations, or actionable recommendations.
 
-Clicking the padlock opens the invitation-key dialog. Invalid attempts are limited per UI session; `/reload` or relog resets the session counter.
+There is no key-entry or unlock path in the public package. The starred pages are synthetic showcases, not dormant copies of restricted engines.
 
 Invitation access is **not sold**. There is no paid tier, subscription, donation gate, or real-world purchase path. **No real-world payment is accepted or required.** Access, when granted, is personal and invitation-only. Contact Jc regarding access.
 
-This is intentionally a relatively small part of the public package. The rest of UBK/GI remains fully usable without Cross-Pressure access.
+The rest of UBK/GI remains fully usable without starred-workspace access.
 
 ---
 
@@ -251,6 +267,7 @@ Then install the three UBK/GI folders above and follow the normal first-run setu
 - `/gi` or `/goblin` — Home
 - `/gi home`
 - `/gi radar`
+- `/gi position` — ★ Position Intelligence showcase
 - `/gi cross` or `/gi pressure` — ★ Cross-Pressure page
 - `/gi shredder` or `/gi shred`
 - `/gi market`
@@ -284,7 +301,7 @@ The public package contains **no**:
 - developer realm/faction market snapshot
 - TSM groups or operations
 - personal item bases
-- private Cross-Pressure relationship/history seed
+- starred-workspace engines, relationship history, position synthesis, or unlock material
 - personal real-world artwork or artifacts
 
 A fresh installation learns from the recipient's own TSM, AppHelper, inventory, mail, loot, transformation activity, and explicit review decisions.
@@ -312,11 +329,11 @@ A lot.
 
 The v1.1.0 release established the modern public foundation: broader UBK inventory coverage, loot-aware accounting, Shredder, the Owned Pipeline, disenchant transformation accounting, Cost Coverage resolution, Home/minimap access, and a much more complete GI interface.
 
-Since then the project has gained contextual navigation, stronger provenance requirements, better live-AH refresh behavior, safer Cost Coverage resolution, improved item interactions, a mailbox-scanner compatibility fix, the ★ Cross-Pressure invitation workspace, explicit invitation/no-payment policy, and — importantly for everyday use — the universal fixed-canvas scaling system that keeps GI readable across window sizes.
+Since then the project has gained contextual navigation, stronger provenance requirements, better live-AH refresh behavior, safer Cost Coverage resolution, improved item interactions, a mailbox-scanner compatibility fix, the universal fixed-canvas scaling system, clearer Radar hunt controls, a guided TSM/AppHelper import workflow, and visible synthetic showcases for the starred workspaces.
 
-v1.1.7 also performs another public-distribution scrub: account-specific historical material is not shipped, personal defaults are removed, the invitation preview is fictional/non-actionable, and the release is packaged around each user's own TSM/AppHelper data.
+v1.1.11 keeps the useful public accounting and investigation tools intact while tightening the public-distribution boundary: account-specific history, personal defaults, unlock material, and restricted engines are not shipped. Each installation learns from that player's own TSM/AppHelper data and explicit review decisions.
 
-For the complete version-by-version history, see **`CHANGELOG.txt`**.
+For release-specific notes and downloads, see **[GitHub Releases](https://github.com/Jcplugs/UBK-Goblin/releases)**.
 
 ---
 
@@ -327,3 +344,5 @@ UBK/GI is built for players who want the addon to show its work.
 A market tool is much more useful when you can tell **why** something is being surfaced, what cost assumption is underneath it, whether the inventory is actually supported by evidence, and whether the current data is fresh enough to deserve action.
 
 That is the direction of the project: keep the accounting defensible, keep the market intelligence inspectable, keep the player in control, and keep public releases clean enough that another player can install the addon without inheriting the developer's auction house.
+
+Public releases are milestone builds. They may arrive less frequently going forward, but each one is intended to be polished, stable, and useful on its own.
