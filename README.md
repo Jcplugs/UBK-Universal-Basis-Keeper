@@ -1,224 +1,164 @@
-# Universal Basis Keeper + Goblin Intelligence
+# UBK / Goblin Intelligence 1.2.5
 
-**Acquisition-basis accounting and player-driven market intelligence for World of Warcraft: The Burning Crusade Anniversary / Classic.**
+## The market has a price. Your inventory has a story.
 
-Universal Basis Keeper (UBK) and Goblin Intelligence (GI) are designed to sit **on top of TradeSkillMaster**, not replace it. TSM already does an enormous amount of work collecting Auction House, accounting, crafting, inventory, regional, and market information. UBK adds a persistent acquisition-cost layer for the items you actually own, while GI turns that cost information and the current TSM/AppHelper market context into practical screens for reviewing opportunities, understanding cost coverage, following disenchant inventory, inspecting markets, and deciding what deserves a human look.
+**Universal Basis Keeper + Goblin Intelligence is an acquisition-accounting and market-intelligence suite for World of Warcraft: The Burning Crusade Anniversary / Classic.**
 
-The project is intentionally conservative about automation. It does not buy, bid, post, cancel, mail, disenchant, or craft for you. The goal is to improve the information available **before you make the decision yourself**.
+It gives you two things ordinary price data cannot:
 
-Current public release: **[v1.1.11](https://github.com/Jcplugs/UBK-Goblin/releases/tag/UBK%2FGI-1.1.11)**
+- a defensible answer to **“What did the units I own actually cost me?”**
+- a practical answer to **“What deserves my attention before I spend real gold?”**
+
+UBK preserves the economic history of your inventory. Goblin Intelligence turns that history—and the market context already supplied by TradeSkillMaster and AppHelper—into readable workrooms for inspection, comparison, practice, and human decision-making.
+
+**[Download UBK / Goblin Intelligence 1.2.5](https://github.com/Jcplugs/UBK-Goblin/releases/tag/UBK%2FGI-1.2.5)** · **[Learn the two starred rooms](STARRED-ROOMS-GUIDE.md)**
+
+> **Two flagship intelligence rooms. One risk-free practice economy. No automatic trading.**
 
 Target client: **TBC Anniversary / TBC Classic — Interface 20506**
 
----
-
-## What the suite contains
-
-The public release contains three addon folders:
-
-- **UniversalBasisKeeper** — acquisition-basis, provenance, coverage, purchase-history interpretation, loot handling, mailbox tracking, and transformation accounting.
-- **GoblinIntelligence** — the visual intelligence layer: Home, Radar, Market Inspector, Watchlist, Shredder, Cost Review, Cost Coverage, Settings, and visible synthetic previews of the starred workspaces.
-- **TSMMyCostBootstrap** — safely installs the package's TSM custom-source chain and profile settings without replacing an existing TSM profile or importing somebody else's groups and operations.
-
-### Required external addons / data
-
-Normal operation requires:
-
-- **TradeSkillMaster**
-- **TradeSkillMaster_AppHelper**
-
-AppHelper is not treated as an incidental extra. GI relies heavily on the TSM/AppHelper AuctionDB data currently loaded for the user's faction-realm and region. Watchlist comparisons, Market Inspector context, Radar inputs, Shredder market context, and other GI views become incomplete or stale when AppHelper data is missing or old.
-
-The usual TSM Desktop App workflow should therefore be kept current so the user's own AppHelper data can populate normally.
-
-UBK/GI does **not** replace TSM or ship another player's TSM database.
+Required data providers: **TradeSkillMaster + TradeSkillMaster_AppHelper**
 
 ---
 
-# The idea behind UBK
+## Built for the moment before you act
 
-TSM can tell you what the market thinks an item is worth. That is not the same question as:
+TradeSkillMaster can tell you what the market currently thinks an item is worth. UBK/GI answers the questions that appear one step later:
 
-> **What did the units I currently own actually cost me?**
+| The question | What UBK/GI brings to the screen |
+|---|---|
+| What did this inventory really cost? | Persistent acquisition basis, quantity coverage, provenance, and unresolved-cost warnings |
+| Am I looking at profit or merely a rising market? | Your committed gold beside current market context and conservative fee-aware references |
+| Is this opportunity supported by evidence? | Distinct market observations, visible confidence states, and contradiction handling |
+| Is too much of my gold sitting in one place? | Position size, concentration, liquidity context, and basis-improvement references |
+| Can I learn the machinery without risking anything? | A sealed Test Arena with fake gold, synthetic inventory, and a fixed market sequence |
+| Will the addon act behind my back? | No—every trade, mail, craft, disenchant, post, cancel, bid, and purchase remains yours |
 
-UBK is built around that distinction.
-
-A useful cost basis needs to survive more than a single purchase. Inventory gets mailed between characters, partially sold, looted, bought in multiple batches, transformed into other materials, temporarily reduced to zero stock, or mixed with units whose origin is uncertain. Treating every unexplained unit as free makes profit calculations look wonderful while quietly making them wrong.
-
-UBK therefore keeps acquisition accounting separate from GI's market opinions. GI may tell you that something looks attractive or unattractive; it does not get to rewrite the underlying basis merely because the market moved.
-
-### Broader inventory coverage
-
-UBK is not limited to the items TSM currently considers crafting materials. Purchased resale stock, reputation items, investment inventory, keys, gear, and other purchased items can carry acquisition basis without being converted into fake crafting materials.
-
-Where cost evidence is incomplete, UBK separates known-cost and unresolved units rather than silently assuming the unresolved portion cost zero.
-
-### Provenance matters
-
-UBK distinguishes meaningful acquisition paths. Purchase history, buyer mail, captured loot, trades, inventory movement, and transformation events are not all treated as the same economic event.
-
-Cross-character movement is particularly important: mailing your own item to another character should not erase its cost or pretend the receiving character obtained it for free.
-
-### Loot and farmed inventory
-
-Looted/farmed inventory is deliberately distinct from purchased inventory. Established tracked items can retain a conservative working basis under the configured loot rules, while first-seen loot with no defensible starting point is routed to human review instead of being assigned a fictional zero cost.
-
-### Transformation accounting
-
-When UBK can support the acquisition cost of an item that is actually transformed — most notably through Shredder's disenchant workflow — it can follow that cost into the real materials produced.
-
-If the source cost is unresolved, the transformation does not magically clean up the uncertainty. UBK keeps the uncertainty visible.
+The result is not an auto-trader. It is a workshop that shows its work.
 
 ---
 
-# Goblin Intelligence
+## The two starred workrooms
 
-GI is the cockpit for the suite. `/gi` or `/goblin` opens the same Home workspace, and the standalone minimap launchers provide another route into the interface.
+The stars mark the suite’s **flagship rooms**. They are not locks, tiers, or payment markers. Every user can operate both machines.
 
-The UI is designed around **decision support rather than transaction automation**. When GI surfaces an opportunity, the next action is still yours.
+### ★ Position Intelligence
 
-## Home
+**See the real shape of what you own.**
 
-Home is the central landing page. It provides a health summary and shortcuts into the primary workflows so you do not need to remember where a particular feature lives.
+Position Intelligence builds a working view of owned inventory with UBK as the authority for genuine acquisition basis. Instead of reducing an item to one market number, it can bring together:
 
-From Home you can reach Cost Coverage, Cost Review, Market Inspector, Radar, Shredder, Watchlist, Settings, and the starred Position Intelligence and Cross-Pressure previews. Home also exposes useful status and user-triggered refresh actions such as Shredder AH stock updates.
-
-The prominent **Import Newest TSM Data** action provides one clear starting point. It processes the TSM/AppHelper information currently loaded by WoW, refreshes UBK accounting, captures the available market context, routes unresolved acquisition costs through human review when necessary, and opens Radar when the workflow is ready.
-
-If the TSM desktop application updated AppHelper after you entered the game, use `/reload` before importing so WoW can load the updated SavedVariables.
-
-## Radar
-
-Radar is a **user-triggered Auction House investigation** rather than an always-on auto-trader.
-
-It uses the available UBK and TSM context to surface candidates worth inspecting. Confirmed opportunities can be filtered, inspected, or added to the Watchlist. GI never buys anything on your behalf.
-
-Radar's hunt controls are organized as **High-End Materials**, **Common Market Flips**, **Uncommon & Rare**, and **Full Market Sweep**. The thresholds used for candidate ranking and labels can be adjusted in Settings. Those settings affect GI's interpretation of market opportunities; they do not change UBK acquisition basis or TSM `mycost`.
-
-Primary navigation, Home actions, Radar hunts and filters, item surfaces, and other important workflow controls include hover explanations so the interface can teach its own terminology and behavior.
-
-## Market Inspector
-
-Market Inspector puts the economic layers next to each other:
-
-- UBK acquisition basis and provenance
+- owned quantity
+- UBK acquisition basis
+- total gold committed
+- known-cost and unresolved units
 - current TSM/AppHelper market context
-- ownership information
-- Shredder context when the item is disenchantable
-- currently refreshed AH-stock information when available
+- liquidity context
+- portfolio concentration
+- basis-improvement references
+- conservative, fee-aware exit references
 
-Item icons and names behave like WoW items: hover for the normal tooltip and Shift-click to place the item link in chat.
+That makes it easier to distinguish a healthy position from an expensive one, a liquid market from a theoretical valuation, and supported cost data from an assumption that still needs review.
 
-The Inspector can be opened from multiple GI workflows, which makes it the natural "tell me more about this item" screen.
+Filters and page controls reuse the completed position cache. **Refresh Positions** deliberately rebuilds it when you want a new working view.
 
-## Watchlist
+### ★ Cross-Pressure
 
-Watchlist is intended for markets you care enough about to revisit.
+**Study the markets beside the market everyone is watching.**
 
-GI records the newest distinct TSM/AppHelper data available to the session and compares it with the previously retained observation rather than treating every `/reload` as a brand-new market event. A manual **Refresh Loaded Data** action is available when you know newer AppHelper information has been loaded.
+Cross-Pressure follows linked materials that share a craft. When one driver material becomes cheaper, the economics of the shared craft can improve; that may later support demand for a co-reagent that has not moved in the same way.
 
-Items can be added from other GI pages, including Radar and Market Inspector.
+The machine does not treat repeated clicks or reloads as fresh evidence. It watches distinct TSM/AppHelper datasets and develops each relationship independently through:
 
-## Shredder
+1. **Forming** — the first supported relationship appears.
+2. **Strengthening** — a later, distinct dataset supports the same conclusion.
+3. **Highly Actionable** — the pattern survives enough independent observations to deserve close human attention.
+4. **Contradicted** — new evidence breaks the thesis and weakens or resets it.
 
-Shredder is a dedicated disenchant-oriented workspace.
-
-It can build and retain a candidate list, provide expected disenchant context, and offer an explicit **Search TSM** path so the player can confirm the live Auction House before acting.
-
-Its Owned Pipeline follows disenchantable items you already own through practical states such as:
-
-- READY
-- NEEDS MAIL
-- IN TRANSIT
-- STORED
-- LISTED
-
-The designated disenchanter is configurable. On a fresh public installation there is no developer character baked into the addon; the current character is used as the initial neutral default.
-
-Live AH-stock checks remain user-triggered and serialized. Shredder never auto-buys or auto-mails inventory.
-
-When a tracked item is actually disenchanted, UBK can carry supported source cost into the real enchanting-material output and record the transformation in Shred History.
-
-## Cost Review
-
-Cost Review is where the addon deliberately asks for a human decision instead of manufacturing certainty.
-
-It is used for inventory whose acquisition cost or provenance cannot be defended automatically. Manual cost is intended to represent a real acquisition-cost decision, not a convenient number chosen to make an item appear profitable.
-
-## Cost Coverage
-
-Cost Coverage shows the state of the owned inventory rather than just a single blended number. Categories include states such as:
-
-- READY
-- PARTIAL / SAFE
-- UNKNOWN COST
-- REVIEW
-- FORMULA-PROTECTED
-- ZERO-STOCK
-
-The category headings are clickable filters.
-
-For PARTIAL / SAFE inventory, **Resolve Unknown** provides a guided workflow. The addon shows the known quantity, unresolved quantity, existing basis, and projected blended basis before anything is committed. The final confirmation rechecks the underlying state so a stale dialog cannot silently overwrite newer information.
-
-Already-known units are not rebased merely because the unresolved portion is being reviewed.
+Cross-Pressure is designed to make the reasoning visible. A label is an invitation to inspect—not permission to buy blindly.
 
 ---
 
-# ★ Position Intelligence
+## Practice with house money
 
-The public interface includes a visible **★ Position Intelligence** page built as a native Lua-rendered showcase.
+Both starred rooms include **Show Test Arena**, which opens the same sealed Golden Geese practice economy. Use **Leave Practice** to return to live work.
 
-Its fictional position demonstrates how acquisition basis, current holdings, invested exposure, recent market context, basis-improvement references, and fee-aware exit planning can be presented together. Every item name, realm name, and value shown on this page is invented for the demonstration.
+Every reset gives you:
 
-The public package does not contain live position synthesis, thresholds, model logic, or actionable position recommendations. The showcase cannot be converted into the live workspace because that engine is not part of the public release.
+- **500g of fake gold**
+- **80 fake Felweed** with a **1g 20s basis**
+- fake Terocone
+- fake Imbued Vials
+- a simulated Flask of the Golden Geese craft
+- five fixed market updates that teach a conclusion from formation through contradiction
+- controls to buy, craft, sell, advance the market, and reset the exercise
 
----
+The arena lets you feel how position accounting and linked-market evidence behave before any real decision is involved.
 
-# ★ Cross-Pressure
+### The practice boundary is absolute
 
-The public interface includes a visible **★ Cross-Pressure** workspace so users can see the concept and the style of information the feature is designed to present.
+Practice activity does **not** alter:
 
-In the public release it is an **invitation-only locked preview**. The page describes the named-material, event-education, shared-recipe, and linked-market inspection workflow without exposing live item relationships, learned evidence, trigger/entry/scale/exit calculations, or actionable recommendations.
+- real character gold
+- real bags, bank, or mail
+- UBK basis, provenance, ledgers, or coverage
+- live Position Intelligence or Cross-Pressure conclusions
+- TSM data, profiles, sources, groups, or operations
+- Watchlist entries or search state
+- crafting queues
+- Auction House actions
 
-There is no key-entry or unlock path in the public package. The starred pages are synthetic showcases, not dormant copies of restricted engines.
-
-Invitation access is **not sold**. There is no paid tier, subscription, donation gate, or real-world purchase path. **No real-world payment is accepted or required.** Access, when granted, is personal and invitation-only. Contact Jc regarding access.
-
-The rest of UBK/GI remains fully usable without starred-workspace access.
-
----
-
-# Universal scaling and UI behavior
-
-A recurring problem with addon interfaces is that "resizing" only shrinks the outer frame while the contents continue to assume a fixed pixel layout. That eventually produces clipped rows, overlapping labels, and controls drawn on top of one another.
-
-Beginning with v1.1.6, GI uses a **fixed 1120 × 700 logical canvas** and scales the entire workshop as one unit. Fonts, buttons, rows, spacing, and page geometry stay in proportion instead of being crushed independently.
-
-Supported scale range: **75%–130%**.
-
-You can control it with:
-
-- `/gi scale` — show the current scale
-- `/gi scale 90` — set GI to 90%
-- `/gi scale reset` — return to the default 95%
-- Settings presets — 75%, 90%, 100%, 115%, and 130%
-- lower-right corner drag — scale the complete GI window
-- Shift-drag — scale the complete workshop
-- normal drag — move the window
-
-Page subtitles are kept to a safe single-line display; hovering them shows the complete explanation when needed.
-
-Escape navigation is contextual: close a dialog first, return from detail view to the section that opened it, then Home, then close GI.
+It is a confidence-building model, not a disguised live mode.
 
 ---
 
-# TSM MyCost Bootstrap
+## One suite, three focused addons
 
-`TSMMyCostBootstrap` exists so UBK can integrate with TSM without bulldozing an established setup.
+### UniversalBasisKeeper
 
-On setup it can clone the user's active TSM profile into a separate **UBK + MyCost** profile while preserving the original. Package custom sources are installed globally because that is how the supported TSM version stores those sources.
+The accounting foundation.
 
-When canonical names are free, the source chain is:
+UBK tracks acquisition basis for inventory you actually own and keeps that basis separate from changing market opinions. It is built to survive the awkward parts of real inventory life:
+
+- purchases made in multiple batches
+- partial sales
+- items mailed between your own characters
+- buyer mail and inventory movement
+- looted or farmed stock
+- trades and transformation events
+- stock temporarily falling to zero
+- mixed quantities where only part of the cost is known
+
+Purchased resale stock, reputation items, investment inventory, keys, gear, and other owned items can carry basis without being pretended into crafting materials.
+
+When the evidence is incomplete, UBK keeps known-cost and unresolved units separate. Missing evidence is not silently converted into free inventory.
+
+### GoblinIntelligence
+
+The visual decision workshop.
+
+`/gi` or `/goblin` opens Home, where health checks, imports, and the major workrooms are one click away:
+
+- **Home** — status, shortcuts, refresh actions, and a guided start
+- **Radar** — user-triggered opportunity investigation
+- **Market Inspector** — basis, ownership, market, liquidity, and Shredder context in one view
+- **Watchlist** — markets worth revisiting across distinct AppHelper observations
+- **Shredder** — disenchant-oriented candidates, expected output context, and owned-item workflow
+- **Cost Review** — explicit human decisions for inventory whose cost cannot be defended automatically
+- **Cost Coverage** — READY, PARTIAL / SAFE, UNKNOWN COST, REVIEW, FORMULA-PROTECTED, and ZERO-STOCK views
+- **Settings** — thresholds, scaling, workflow preferences, and supporting controls
+- **★ Position Intelligence** — the shape and exposure of owned positions
+- **★ Cross-Pressure** — evidence developing across linked markets
+
+Important item surfaces behave like WoW items: hover for the normal tooltip and Shift-click to place the item link in chat.
+
+### TSMMyCostBootstrap
+
+The safe integration layer.
+
+The bootstrap installs the package’s TSM custom-source chain and can clone the active TSM profile into a separate **UBK + MyCost** profile. It preserves the original profile and does not import another player’s groups, operations, accounting history, inventory, or crafting queue.
+
+When the canonical source names are available, the chain is:
 
 ```text
 fairvalue = avg(dbhistorical,dbhistorical,dbregionsaleavg,dbregionsaleavg,dbrecent)
@@ -227,122 +167,147 @@ craftsell = 95%min(dbminbuyout,dbrecent,110%fairvalue)
 mycost    = matprice
 ```
 
-If the user already has conflicting custom sources with those names, the bootstrap preserves them and installs UBK-prefixed fallback names instead of overwriting the user's existing formulas.
-
-The bootstrap ships **no groups, operations, Accounting history, inventory, crafting queue, SavedVariables, or per-item material prices**.
-
-Useful command:
-
-- `/tsmycost status` — report installed names, conflicts, and setup state
+If those names already belong to your own sources, the bootstrap preserves them and installs UBK-prefixed fallbacks instead of overwriting your work.
 
 ---
 
-# Installation
+## Features that earn their place
 
-## Existing TSM user
+### Acquisition basis that follows the inventory
+
+Mailing an item to another character should not erase what it cost. Buying another batch should not flatten earlier evidence. Selling some units should not make the remainder economically anonymous. UBK maintains continuity across those changes so GI can reason from owned stock rather than a fictional average.
+
+### Provenance you can inspect
+
+Purchase history, buyer mail, captured loot, trades, transfers, and transformations are different events. UBK keeps those distinctions meaningful, and uncertain acquisition paths are routed to review instead of being dressed up as certainty.
+
+### Conservative treatment of farmed and looted stock
+
+Established tracked items can retain a working basis under configured loot rules. First-seen loot without a defensible starting point goes to human review rather than being assigned a convenient zero.
+
+### Transformation accounting
+
+When a supported source item is transformed—most notably through Shredder’s disenchant workflow—UBK can carry its acquisition cost into the real materials produced. If the source cost was unresolved, the uncertainty survives the transformation too.
+
+### Radar that investigates instead of transacting
+
+Radar searches the loaded market context for candidates worth a human look. Hunts are organized as **High-End Materials**, **Common Market Flips**, **Uncommon & Rare**, and **Full Market Sweep**. Confirmed candidates can move into Market Inspector or Watchlist, but GI never purchases them.
+
+### A Market Inspector with the layers together
+
+Open one item and compare UBK basis, provenance, ownership, TSM/AppHelper market context, Shredder information, and refreshed Auction House stock when available. It is the suite’s natural “tell me more” screen.
+
+### A Watchlist that respects real updates
+
+GI compares the newest distinct TSM/AppHelper observation with the previously retained observation. A reload is not automatically treated as a new market event. **Refresh Loaded Data** is available when you know newer AppHelper information is ready.
+
+### A practical disenchant pipeline
+
+Shredder can retain candidates, show expected disenchant context, and open an explicit **Search TSM** path for live confirmation. Owned items move through readable states such as READY, NEEDS MAIL, IN TRANSIT, STORED, and LISTED. It does not auto-buy, auto-mail, or auto-disenchant.
+
+### Honest partial-cost handling
+
+Cost Coverage separates supported units from unresolved units. **Resolve Unknown** shows quantities, the existing basis, and the projected blended basis before commitment, then rechecks the underlying state so a stale dialog cannot overwrite newer information. Already-known units are not casually rebased.
+
+### A complete interface that scales as one workshop
+
+GI uses a fixed **1120 × 700 logical canvas** and scales the complete interface together—fonts, controls, rows, spacing, and page geometry—from **75% to 130%**. It avoids the clipped controls and collapsed layouts produced by shrinking only the outer frame.
+
+Escape navigation is contextual: close a dialog, return from detail to its originating section, return Home, then close GI.
+
+---
+
+## A clear everyday workflow
+
+1. Keep the TSM Desktop App and AppHelper data current.
+2. Open `/gi` and choose **Import Newest TSM Data**.
+3. Review unresolved acquisition costs when UBK asks for a real decision.
+4. Explore Radar, Watchlist, Shredder, or the two starred workrooms.
+5. Open Market Inspector before acting on an item.
+6. Confirm the live Auction House yourself and make the final decision.
+
+If AppHelper updated after you entered the game, use `/reload` before importing so WoW can load the new SavedVariables.
+
+---
+
+## Install 1.2.5
+
+### Existing TSM user
 
 1. Exit World of Warcraft completely.
-2. Make sure your TSM and TSM AppHelper installation is current.
-3. Copy these folders into the TBC Classic / Anniversary `Interface/AddOns` directory:
+2. Make sure TradeSkillMaster and TradeSkillMaster_AppHelper are current.
+3. Download and extract the release.
+4. Copy these three folders into the TBC Classic / Anniversary `Interface/AddOns` directory:
    - `TSMMyCostBootstrap`
    - `UniversalBasisKeeper`
    - `GoblinIntelligence`
-4. Keep your existing TSM and TSM_AppHelper folders.
-5. Do **not** delete SavedVariables when upgrading from an earlier UBK/GI release.
-6. Log in and open `/gi`.
-7. Complete any UBK first-run review/setup prompts appropriate to your account.
+5. Keep your existing TSM and TSM_AppHelper folders.
+6. Do **not** delete SavedVariables when upgrading an existing installation.
+7. Log in, open `/gi`, and complete any first-run review appropriate to your account.
 
-## Fresh user
+### Fresh user
 
-Install and initialize TradeSkillMaster and TradeSkillMaster_AppHelper first. AppHelper needs to populate **your own** realm/region AuctionDB data; UBK/GI does not ship somebody else's market database.
+Install and initialize TradeSkillMaster and TradeSkillMaster_AppHelper first. AppHelper must populate market data for **your** faction-realm and region; this package does not ship another player’s AuctionDB.
 
-Then install the three UBK/GI folders above and follow the normal first-run setup.
-
----
-
-# Useful commands
-
-### Goblin Intelligence
-
-- `/gi` or `/goblin` — Home
-- `/gi home`
-- `/gi radar`
-- `/gi position` — ★ Position Intelligence showcase
-- `/gi cross` or `/gi pressure` — ★ Cross-Pressure page
-- `/gi shredder` or `/gi shred`
-- `/gi market`
-- `/gi watch`
-- `/gi review`
-- `/gi coverage`
-- `/gi settings`
-- `/gi refresh` — refresh the newest loaded AppHelper/Watchlist observation
-- `/gi scale`
-- `/gi scale 75-130`
-- `/gi scale reset`
-
-### UBK / MyCost
-
-UBK provides its own setup, status, review, and accounting commands; GI surfaces the primary workflows visually. `TSMMyCostBootstrap` also provides `/tsmycost status` for source/profile inspection.
+Then install the three folders above and open `/gi`.
 
 ---
 
-# Privacy and public-distribution rules
+## Useful commands
 
-This repository is intended to be usable by players on any supported TBC Anniversary faction-realm without inheriting somebody else's account state.
-
-The public package contains **no**:
-
-- WTF folder
-- SavedVariables
-- player inventory snapshot
-- player purchase ledger/archive
-- account or character list
-- preset watchlist
-- developer realm/faction market snapshot
-- TSM groups or operations
-- personal item bases
-- starred-workspace engines, relationship history, position synthesis, or unlock material
-- personal real-world artwork or artifacts
-
-A fresh installation learns from the recipient's own TSM, AppHelper, inventory, mail, loot, transformation activity, and explicit review decisions.
-
-The public Shredder also contains no preselected developer character.
+| Command | Destination or action |
+|---|---|
+| `/gi` or `/goblin` | Home |
+| `/gi position` | ★ Position Intelligence |
+| `/gi cross` or `/gi pressure` | ★ Cross-Pressure |
+| `/gi radar` | Radar |
+| `/gi market` | Market Inspector |
+| `/gi watch` | Watchlist |
+| `/gi shredder` or `/gi shred` | Shredder |
+| `/gi review` | Cost Review |
+| `/gi coverage` | Cost Coverage |
+| `/gi settings` | Settings |
+| `/gi refresh` | Refresh the newest loaded AppHelper/Watchlist observation |
+| `/gi scale` | Show the current scale |
+| `/gi scale 75-130` | Set the interface scale |
+| `/gi scale reset` | Restore the default scale |
+| `/tsmycost status` | Inspect bootstrap source/profile state |
 
 ---
 
-# Player-control and accounting rules
+## Clean package, clean boundaries
 
-The project deliberately keeps several boundaries firm:
+The release contains **no** WTF folder, SavedVariables, player inventory snapshot, purchase archive, character list, preset Watchlist, personal item bases, developer market snapshot, TSM groups, TSM operations, or preselected disenchanter.
 
-1. **UBK owns acquisition accounting.** GI can read cost/ownership context but market opinions do not rewrite basis.
-2. **Unknown stays unknown until supported.** Missing evidence is not treated as free inventory.
-3. **Moving inventory is not automatically a sale.** Cross-character movement should preserve economic identity.
-4. **Transformations preserve uncertainty.** A questionable source cost does not become trustworthy just because the item was disenchanted.
-5. **GI is advisory.** No auto-buy, auto-bid, auto-post, auto-cancel, auto-mail, auto-disenchant, or auto-craft.
-6. **Live AH confirmation remains the player's responsibility.** Cached intelligence is a reason to look, not permission to transact blindly.
+A fresh installation learns from the recipient’s own TSM/AppHelper data, inventory, mail, loot, transformations, and explicit review decisions.
 
----
+The operating rules stay simple:
 
-# What changed after v1.1.0?
-
-A lot.
-
-The v1.1.0 release established the modern public foundation: broader UBK inventory coverage, loot-aware accounting, Shredder, the Owned Pipeline, disenchant transformation accounting, Cost Coverage resolution, Home/minimap access, and a much more complete GI interface.
-
-Since then the project has gained contextual navigation, stronger provenance requirements, better live-AH refresh behavior, safer Cost Coverage resolution, improved item interactions, a mailbox-scanner compatibility fix, the universal fixed-canvas scaling system, clearer Radar hunt controls, a guided TSM/AppHelper import workflow, and visible synthetic showcases for the starred workspaces.
-
-v1.1.11 keeps the useful public accounting and investigation tools intact while tightening the public-distribution boundary: account-specific history, personal defaults, unlock material, and restricted engines are not shipped. Each installation learns from that player's own TSM/AppHelper data and explicit review decisions.
-
-For release-specific notes and downloads, see **[GitHub Releases](https://github.com/Jcplugs/UBK-Goblin/releases)**.
+1. **UBK owns acquisition accounting.** Market opinions cannot rewrite it.
+2. **Unknown stays unknown until supported.** Missing evidence is not free inventory.
+3. **Movement is not automatically a sale.** Transfers preserve economic identity.
+4. **Transformations preserve uncertainty.** Questionable inputs do not become trustworthy outputs.
+5. **GI is advisory.** It does not automate transactions or character actions.
+6. **Live confirmation belongs to the player.** Cached intelligence is a reason to look, not a reason to act blindly.
 
 ---
 
-# Release philosophy
+## What is inside the download
 
-UBK/GI is built for players who want the addon to show its work.
+```text
+GoblinIntelligence/
+UniversalBasisKeeper/
+TSMMyCostBootstrap/
+RELEASE-NOTES-v1.2.5.txt
+STARRED-ROOMS-GUIDE.md
+```
 
-A market tool is much more useful when you can tell **why** something is being surfaced, what cost assumption is underneath it, whether the inventory is actually supported by evidence, and whether the current data is fresh enough to deserve action.
+The guide provides a plain-English first walkthrough of both flagship rooms and the Golden Geese Test Arena. The release notes provide the concise install-facing summary; this page is the full product tour.
 
-That is the direction of the project: keep the accounting defensible, keep the market intelligence inspectable, keep the player in control, and keep public releases clean enough that another player can install the addon without inheriting the developer's auction house.
+---
 
-Public releases are milestone builds. They may arrive less frequently going forward, but each one is intended to be polished, stable, and useful on its own.
+## Built to show its work
+
+UBK/GI is for players who want to understand the number underneath the recommendation, the evidence underneath the label, and the uncertainty underneath the inventory.
+
+**Keep the accounting defensible. Keep the intelligence inspectable. Keep the player in control.**
