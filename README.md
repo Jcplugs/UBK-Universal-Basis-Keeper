@@ -1,4 +1,4 @@
-# UBK / Goblin Intelligence 1.2.5
+# UBK / Goblin Intelligence
 
 ## The market has a price. Your inventory has a story.
 
