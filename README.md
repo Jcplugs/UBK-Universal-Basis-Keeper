@@ -11,7 +11,6 @@ It gives you two things ordinary price data cannot:
 
 UBK preserves the economic history of your inventory. Goblin Intelligence turns that history—and the market context already supplied by TradeSkillMaster and AppHelper—into readable workrooms for inspection, comparison, practice, and human decision-making.
 
-**[Download UBK / Goblin Intelligence 1.2.5](https://github.com/Jcplugs/UBK-Goblin/releases/tag/UBK%2FGI-1.2.5)** · **[Learn the two starred rooms](STARRED-ROOMS-GUIDE.md)**
 
 > **Two flagship intelligence rooms. One risk-free practice economy. No automatic trading.**
 
