@@ -1,0 +1,76 @@
+name: Publish verified UBK 1.6
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/publish-v1.6.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: ubk-draft-release
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.repository == 'Jcplugs/UBK-Universal-Basis-Keeper' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish the approved release and verify its tag
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: python
+        run: |
+          import json
+          import os
+          import urllib.request
+          
+          REPOSITORY = "Jcplugs/UBK-Universal-Basis-Keeper"
+          RELEASE_ID = 383815484
+          COMMIT = "f0655b00c25b966aa6d3946cee659a1a22ed2077"
+          EXPECTED = json.loads("{\"installer.exe\":{\"size\":354816,\"digest\":\"sha256:a88b3930dd06b476219e24e4a441828fbe728de06ae7ad3d750108a4260c21bf\"},\"SHA256SUMS.txt\":{\"size\":6046,\"digest\":\"sha256:2e17e0a2a7c8d466566a46f8e834923e5e3fd5c5811eed39dc9682deb7eacecd\"},\"source.zip\":{\"size\":4908927,\"digest\":\"sha256:76d90c9277721473890e987c0838984dacf077de93090bbe24db46f39619405a\"},\"UBK-1.6.zip\":{\"size\":9982794,\"digest\":\"sha256:781bc614958fe55d66be52387f5a25711808053e521e5a519432a3caaab30502\"}}")
+          API = "https://api.github.com/repos/" + REPOSITORY
+          headers = {
+              "Authorization": "Bearer " + os.environ["GH_TOKEN"],
+              "Accept": "application/vnd.github+json",
+              "X-GitHub-Api-Version": "2022-11-28",
+              "User-Agent": "UBK-Approved-Publication",
+          }
+          
+          def request(path, method="GET", payload=None):
+              data = json.dumps(payload).encode() if payload is not None else None
+              req = urllib.request.Request(API + path, data=data, method=method,
+                  headers={**headers, "Content-Type": "application/json"})
+              with urllib.request.urlopen(req, timeout=60) as response:
+                  return json.load(response)
+          
+          repo = request("")
+          if repo["id"] != 1354307313 or repo["private"] or repo["full_name"] != REPOSITORY:
+              raise RuntimeError("The expected UBK repository must already be public")
+          run = request("/actions/runs/34141699699")
+          if run["status"] != "completed" or run["conclusion"] != "success":
+              raise RuntimeError("The reviewed release build is not successful")
+          release = request(f"/releases/{RELEASE_ID}")
+          if release["tag_name"] != "v1.6" or release["target_commitish"] != COMMIT:
+              raise RuntimeError("Release tag or prepared commit changed")
+          assets = release["assets"]
+          actual = {a["name"]: {"size": a["size"], "digest": a.get("digest")} for a in assets}
+          if len(assets) != len(EXPECTED) or actual != EXPECTED or any(a["state"] != "uploaded" for a in assets):
+              raise RuntimeError("Release assets differ from the verified downloads")
+          if release["draft"]:
+              if release["published_at"] is not None:
+                  raise RuntimeError("Unexpected draft publication state")
+              refs = request("/git/matching-refs/tags/v1.6")
+              for ref in refs:
+                  if ref["ref"] == "refs/tags/v1.6" and (ref["object"]["type"] != "commit" or ref["object"]["sha"] != COMMIT):
+                      raise RuntimeError("Existing v1.6 tag does not point to the prepared commit")
+              release = request(f"/releases/{RELEASE_ID}", "PATCH",
+                  {"draft": False, "prerelease": False, "make_latest": "true"})
+          final = request(f"/releases/{RELEASE_ID}")
+          if final["draft"] or not final["published_at"] or final["prerelease"]:
+              raise RuntimeError("Release publication was not confirmed")
+          tag = request("/git/ref/tags/v1.6")
+          if tag["object"]["type"] != "commit" or tag["object"]["sha"] != COMMIT:
+              raise RuntimeError("Published release tag does not match the prepared commit")
+          print("Published: " + final["html_url"])
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as out:
+              out.write("Published [" + final["name"] + "](" + final["html_url"] + ").\n")
