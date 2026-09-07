@@ -12,7 +12,7 @@ ROOT_FILES = {
     'DEVELOPMENT_NOTES.md', 'STRESS-TESTS.md', 'VERIFICATION.txt',
     'LUA_TEST_RESULTS.txt', 'INSTALLER_TEST_RESULTS.txt', 'START-HERE.txt',
     'BUILD.txt', 'Build.cmd', 'rebuild_payload.py', 'manifest.json',
-    'release.json', '.gitignore', '.gitattributes', 'SOURCE_PATCH_FILES.json',
+    'release.json', '.gitignore', '.gitattributes', 'SOURCE_PATCH_FILES.json', 'RELEASE.md',
 }
 
 def source_files(root=ROOT):
@@ -51,7 +51,9 @@ def main():
     members = [(p.relative_to(ROOT).as_posix(), p.read_bytes()) for p in source_files()]
     archive(source, members)
     shutil.copyfile(setup, folder / 'installer.exe')
-    for name in ('START-HERE.txt', 'UBK_RELEASE_NOTES.txt', 'README.md'):
+    for name in ('START-HERE.txt', 'UBK_RELEASE_NOTES.txt', 'README.md',
+                 'USER_GUIDE.md', 'RELEASE.md', 'BUILD.txt', 'VERIFICATION.txt',
+                 'STRESS-TESTS.md', 'LUA_TEST_RESULTS.txt', 'INSTALLER_TEST_RESULTS.txt'):
         shutil.copyfile(ROOT / name, folder / name)
     shutil.copytree(ROOT / 'addon/Interface', folder / 'Interface', dirs_exist_ok=True)
     shutil.copytree(ROOT / 'docs', folder / 'docs', dirs_exist_ok=True)

@@ -37,12 +37,7 @@ def main():
         with urllib.request.urlopen(req, timeout=90) as response:
             raw = response.read()
             return json.loads(raw) if raw else None
-    body = '**Every item has a price. Your inventory has a story.**\n\n'
-    body += 'UBK 1.6 for TBC Anniversary. Requires TradeSkillMaster; the TSM Desktop App is optional and recommended.\n\n'
-    body += 'Download `UBK-1.6.zip` for one folder containing the installer, complete source archive, and Interface addon folder. '
-    body += 'The installer supports new installations and upgrades while preserving local saved data.\n\n'
-    body += '## Changes since 1.4\n\n' + (ROOT / 'UBK_RELEASE_NOTES.txt').read_text(encoding='utf-8')
-    body += '\n\n## Validation\n\n' + (ROOT / 'VERIFICATION.txt').read_text(encoding='utf-8')
+    body = (ROOT / 'RELEASE.md').read_text(encoding='utf-8')
     payload = draft_payload(config, commit, body)
     existing = []
     page = 1

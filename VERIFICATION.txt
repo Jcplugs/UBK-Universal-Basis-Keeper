@@ -1,7 +1,7 @@
 Universal Basis Keeper 1.6 — draft verification
 
-PASS: all 25 addon Lua files pass syntax checks.
-PASS: all 13 Lua behavior suites pass; see LUA_TEST_RESULTS.txt.
+PASS: all 26 addon Lua files pass syntax checks.
+PASS: all 14 Lua behavior suites pass; see LUA_TEST_RESULTS.txt.
 The accounting batch regression covers 50,000 historical rows plus 90 new
 purchases in at most 300 rows per scheduled step, exact paid costs, duplicate
 claims, source-window deferral, event coalescing, reopen invalidation, and

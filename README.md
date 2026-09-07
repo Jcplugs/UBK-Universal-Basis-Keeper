@@ -27,6 +27,18 @@ The EXE installs the complete addon and its TSM integration for new and existing
 
 Installing UBK does not rewrite all your personal TSM operations. The [User Guide](USER_GUIDE.md) explains how to connect them.
 
+## Position Intelligence: put your holdings to work
+
+Position Intelligence brings your holdings, recorded cost, and loaded market prices together so you can decide where to focus. See what could sell above basis, what ties up your gold, and which positions need better cost evidence before you act.
+
+The table puts **Basis**, **Price ref.**, **Profit / unit**, **Qty**, **Total profit**, and **Sale rate** beside each item's assessment. Start with **Quick Wins**, or switch to **All**, **Sell**, **Add**, **Risk**, or **Cost review**. Search by name, filter by profession, item type, quality, or per-item profit, and click column headers to sort.
+
+Hover a holding for the reasoning behind its assessment: cost coverage, invested gold, share of fully costed positions, liquidity, supporting signals, and specific buy and sell price levels. When the estimate supports it, UBK also shows how many units would recover the position's current basis and how many would remain. Left-click opens **Market Inspector**; right-click adds the item to your **Watchlist**.
+
+**Quick Wins** requires fully covered, trusted costs, an estimated net return of at least 15%, and a market not marked thin. Profit estimates subtract the 5% AH cut and reserve one failed 24-hour deposit when vendor value is available. The default ranking is profit per item, with quantity and total profit shown separately. Incomplete costs are marked **COST NEEDED** and their profit is withheld.
+
+These assessments use currently loaded TSM data. Open Market Inspector and scan at the AH to check listings before acting; UBK leaves the buying and selling decisions with you.
+
 ## A cost is different from a sale price
 
 Consider a hypothetical evening: you buy twenty Living Rubies at **55g each**, but your configured TSM material formula still values them at **30g**. A cut consuming one ruby appears to sell for **45g**.
@@ -41,7 +53,7 @@ This example concerns a configured cost input, not an unavoidable flaw in TSM. T
 
 These are real in-game captures from a player's existing UBK 1.6 session on
 7 September 2026. Prices and quantities describe that moment; they are not
-sample records installed with the addon. The personal recovery had not yet run.
+sample records installed with the addon.
 
 **Home:** coverage totals and buttons that lead directly to the relevant workspace.
 
@@ -72,7 +84,7 @@ withholds a profit estimate until its minimum sample is met.
 | **Market Inspector** | Inspect one item, use **Scan Now** for a live AH quote, open its **TSM Browse** search, or **Scan Mats** to compare recipe costs with current shopping quotes. Vials and known vendor supplies stay off the AH shopping list. |
 | **Sell Above Basis** | Select eligible bag items, set basis boundaries and posting percentages, then temporarily give them a dedicated TSM Auctioning group. Return them to their recorded original groups afterward. Stack size stays one. |
 | **Shredder: Ores** | Rank expected raw-gem profit per five ore, inspect yield sources, and open TSM Destroying. Complete personal prospects strengthen the local estimates. Recorded ore expenses settle into actual outputs after reload. |
-| **Position Intelligence** | Search and sort holdings by profession, item type, quality, and value. Compare per-item opportunities without letting a large quantity dominate the view. |
+| **Position Intelligence** | Review sale opportunities, exposure, and cost gaps across your holdings. Compare net profit per item and for the position, then inspect the assessment, evidence, liquidity, and buy/sell levels. |
 | **Watchlist** | Keep dates, starting values, latest loaded minimum buyouts, and sale-rate context together in sortable columns. |
 | **Chum and Cross-Pressure** | Investigate price signals and keep a playbook of related materials and the opportunities you are following. |
 | **Sources & Integration** | See UBK's native TSM sources, existing custom aliases, availability, and worked gold examples. Keep this window open alongside the main interface. |
@@ -93,17 +105,6 @@ While the AH, mailbox, trade, vendor, or loot window is open, UBK retains acquis
 
 ## Your records, on your PC
 
-This package includes no player's account, inventory, purchases, watchlist, or personal yield observations. Each account uses its own evidence. WoW saves UBK history and settings through its normal SavedVariables; TSM saves the temporary-group return journal beside its group data. The addon is an independent community project, not an official TSM product.
+The addon installs no player's account, inventory, purchases, watchlist, or personal yield observations. The documentation screenshots show an existing player session. Each account uses its own evidence. WoW saves UBK history and settings through its normal SavedVariables; TSM saves the temporary-group return journal beside its group data. The addon is an independent community project, not an official TSM product.
 
 Read the [User Guide](USER_GUIDE.md), [inside cover](docs/INSIDE-COVER.md), [basis explanation](docs/UNDER-THE-HOOD-BASIS.md), and [changes since 1.4](UBK_RELEASE_NOTES.txt). The [source build instructions](BUILD.txt) describe `source.zip`. Automated checks and remaining in-game checks are documented in [VERIFICATION.txt](VERIFICATION.txt) and [STRESS-TESTS.md](STRESS-TESTS.md).
-
-
-Manual addon placement and the integration check
-
-The download includes Interface/AddOns/UniversalBasisKeeper for manual placement.
-TSM is required, and the supported client is TBC Anniversary only. Copying UBK
-does not install its TSM integration. If the bridge is missing or cannot initialize,
-UBK plays the raid-warning sound and prints the repair instruction once after
-login. Close WoW and run installer.exe to complete the integration. Working
-installations remain quiet. If TSM itself is absent, WoW marks UBK's required
-dependency as missing in the AddOns list.

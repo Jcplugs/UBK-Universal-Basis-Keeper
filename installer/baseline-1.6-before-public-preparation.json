@@ -3,15 +3,14 @@
   "files": [
     {
       "path": "Interface/AddOns/UniversalBasisKeeper/README.txt",
-      "sha256": "25e0ec36a2a7eb283902d2c73b45092580180a875d53522bb19994ce261463a8",
+      "sha256": "5f9a81af56a99a4697a45304e83cb927d57a2076556babbd28971536d5d26c05",
       "baselineSha256": [
         "85352ae4adf5624f7c6378fed0400329c8b729cf0225b3d81296108374df8a67",
         "84fb2c592728c4dce3dc77e4019466ff11c991736ac645aa36aa358ed2701d29",
         "db4ba6221ae07b87429827f82b42231c119e0e3c376a33bf13cc3c4a335349f5",
         "9bb1e2ed3d0e3e09fb58d076212fd385500a34a01a4f92f16e1dcbf92528fc19",
         "26c1780361ea16bc6659b731edd0ae022ce9cec0040cff9e13146835b8fc37c2",
-        "4c6430e1300f6b2cfede07d68b3bd0c04ac77ce105dcdb9ec46269596b35f6f0",
-        "5f9a81af56a99a4697a45304e83cb927d57a2076556babbd28971536d5d26c05"
+        "4c6430e1300f6b2cfede07d68b3bd0c04ac77ce105dcdb9ec46269596b35f6f0"
       ]
     },
     {
@@ -50,9 +49,7 @@
     {
       "path": "Interface/AddOns/UniversalBasisKeeper/UBK_IntegrationHealth.lua",
       "sha256": "3be84f920abf304c6e30d4baf8cf1a4b0caf17c4e0bcdf97eaf8d5849eb6b1c2",
-      "baselineSha256": [
-        "3be84f920abf304c6e30d4baf8cf1a4b0caf17c4e0bcdf97eaf8d5849eb6b1c2"
-      ]
+      "baselineSha256": []
     },
     {
       "path": "Interface/AddOns/UniversalBasisKeeper/UBK_Interface.lua",
@@ -144,8 +141,7 @@
       "path": "Interface/AddOns/UniversalBasisKeeper/UBK_ProspectingSessions.lua",
       "sha256": "5fa7f256c1669193018e81f5e1c2777f9acf62d633316627da2568f007321644",
       "baselineSha256": [
-        "808430e0de06c4c081ef1c57fb7b8f33b3d01acfaf2c256d0faac4c1bac7603b",
-        "5fa7f256c1669193018e81f5e1c2777f9acf62d633316627da2568f007321644"
+        "808430e0de06c4c081ef1c57fb7b8f33b3d01acfaf2c256d0faac4c1bac7603b"
       ]
     },
     {
@@ -178,8 +174,7 @@
         "4ab9b46b6610524d5fbb397126601a9d2e851cd7e6eebd05bf08d30c181be349",
         "6165063cf80e2681907b7fd85e2b1f49ef4c3d2748e1cd9f5c293dc048fae4f4",
         "47f7deabf816c99e31bbd948dd0e3eaa0535b63bba4222a5bdf6f1f85ebfc98b",
-        "53c4285ad437ae010c38902b501eb4fedf41f85742bd2f9a2d03491739436fbc",
-        "19ee235a5d3ab4ba2cf179f3ee6f88d81efe84851123b3469e7d2af68ac7c17f"
+        "53c4285ad437ae010c38902b501eb4fedf41f85742bd2f9a2d03491739436fbc"
       ]
     },
     {
@@ -232,14 +227,13 @@
     },
     {
       "path": "Interface/AddOns/UniversalBasisKeeper/USER_GUIDE.md",
-      "sha256": "b90c36b837a8a197152f2f46eaba3a1d33363e541123c9367d4c7c092a2187cb",
+      "sha256": "5832013ed6b991c0b170dbbfec8b51b7031be3476951ee15d93cd8d18fd0d056",
       "baselineSha256": [
         "bd62d70291bca9af71a5cbfe7ce3ecfcb77a9303c88846c3c22bc9a07288807d",
         "6a9c29d2145cdf2a0a4ab7528cd77faa313d920d61dd8726c090e0ccfe889349",
         "a634152024157f7e420f9c179f5e985ea2be5100c855cba867e5cda274ae4819",
         "14b0d1a3330e2829267a7b8d05ea2939f625a0959cb194aafaf15c5c09d87741",
-        "37bf1f4cc70e57e213eb31a8cc5999cca68a829750c4407398c1c19840a2fb20",
-        "5832013ed6b991c0b170dbbfec8b51b7031be3476951ee15d93cd8d18fd0d056"
+        "37bf1f4cc70e57e213eb31a8cc5999cca68a829750c4407398c1c19840a2fb20"
       ]
     },
     {
@@ -268,8 +262,7 @@
         "67452ff78dce663cbf651826e7d82e7dafba4147511a6c7fc6f5696059520902",
         "a4cdf925d0f76cd8ab06dc80c838938eab6bb761421153c9db84c05560e9133e",
         "6708b4be2f4d7231c61a49060bf499bc029fbc6b98a4393c8cba96e7995befc3",
-        "86e0593aae45b1ad676295e123e3c399f5af30fc09f5eb6a1770f07245d798c5",
-        "328403f600a4d93789c9857135a37f9a4a6ad6bf5cee5532be55afc64b004ce9"
+        "86e0593aae45b1ad676295e123e3c399f5af30fc09f5eb6a1770f07245d798c5"
       ]
     }
   ],
