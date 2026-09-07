@@ -1,0 +1,44 @@
+name: Repair public 1.6 prospecting
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/repair-public-prospecting.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ubk-draft-release
+  cancel-in-progress: false
+jobs:
+  source-tests:
+    if: github.repository == 'Jcplugs/UBK-Universal-Basis-Keeper' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - run: sudo apt-get update && sudo apt-get install -y liblua5.4-0
+      - name: Run regression tests and release guards
+        run: |
+          python3 tests/run_lua.py
+          python3 -m unittest discover -s tests -p '*_test.py'
+  repair:
+    needs: source-tests
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Build installer and run isolated fixtures
+        shell: powershell
+        run: ./installer/Build-Release.ps1
+      - name: Package and verify all public downloads
+        run: |
+          python scripts/package_release.py
+          python scripts/repair_public_prospecting.py --verify-only
+      - name: Replace verified public downloads
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/repair_public_prospecting.py

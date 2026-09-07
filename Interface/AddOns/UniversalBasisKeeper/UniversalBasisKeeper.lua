@@ -7491,7 +7491,8 @@ function _G.UBKProspectAccounting.DB()
 end
 function _G.UBKProspectAccounting.Refresh() ProcessLedger(true) end
 function _G.UBKProspectAccounting.Observe(item)
-    return math.max(0,tonumber(GetRealmQuantityForItem(item)) or 0)
+    local quantity = GetRealmQuantityForItem(item) -- Discard the inventory-availability flag.
+    return math.max(0,tonumber(quantity) or 0)
 end
 function _G.UBKProspectAccounting.Track(item)
     local db=_G.UBKProspectAccounting.DB()

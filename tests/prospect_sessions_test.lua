@@ -9,7 +9,7 @@ local db,owned,quotes,refreshes,frames,timers
 function CopyTable(t) local c={};for k,v in pairs(t) do c[k]=type(v)=='table' and CopyTable(v) or v end;return c end
 function GetRealmDB() return db end
 function IsSupportedRealm()return true end
-function GetRealmQuantityForItem(item)return owned[item] or 0 end
+function GetRealmQuantityForItem(item)return owned[item] or 0, true end
 function ProcessLedger() refreshes=refreshes+1 end
 function CostTrustedForRadar(s)return s.trusted~=false and not s.needsCostReview and (s.value or 0)>0 end
 function CostProvenanceLabel(s)return s.costProvenance or 'purchase-ledger' end

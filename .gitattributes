@@ -2,3 +2,5 @@
 *.cmd text eol=crlf
 *.exe binary
 *.zip binary
+*.png binary
+*.jpg binary

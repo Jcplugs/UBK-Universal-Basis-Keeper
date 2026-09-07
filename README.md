@@ -1,5 +1,7 @@
 # UBK - Universal Basis Keeper
 
+**1.6 prospecting hotfix 1 (7 September):** fixes a Lua error in prospecting cost capture and settlement. Existing 1.6 users should close WoW and run the updated installer.
+
 Version 1.6 • TBC Anniversary
 
 **Every item has a price. Your inventory has a story.**

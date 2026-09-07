@@ -1,3 +1,9 @@
+Prospecting hotfix 1 — 7 September 2026
+Fixes a Lua error that interrupted prospecting cost capture and settlement.
+Existing 1.6 users: close WoW and run the updated installer, then reload after
+completing a prospecting session. Existing recorded sessions retain their
+normal evidence checks. This fix cannot reconstruct receipts never captured.
+
 Integration check addition
 - Reports a missing TSM-UBK integration in chat with the raid-warning sound after login.
 - Includes the addon folder for manual placement; the installer completes the TSM integration.

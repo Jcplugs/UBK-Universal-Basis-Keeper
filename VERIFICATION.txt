@@ -1,3 +1,9 @@
+PROSPECTING HOTFIX 1 - 7 September 2026
+Production Observe now consumes only the inventory quantity, excluding its
+boolean availability return. Regression and prospecting session tests use
+the two-return production contract. All local Lua fixtures and release-guard
+tests passed. Live WoW behavior remains to be confirmed.
+
 Universal Basis Keeper 1.6 — draft verification
 
 PASS: all 26 addon Lua files pass syntax checks.

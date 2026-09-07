@@ -1,7 +1,8 @@
+UBK 1.6 prospecting hotfix 1 - isolated Lua 5.4 fixtures, 7 September 2026
 PASS: syntax 26 Lua files
 RUN: accounting_batch_test.lua
 PASS: 50,000 historical + 90 new purchases parsed once in <=300-row steps, exact 2,700g cost, read-only preparation, empty replay, duplicate invoice/seller/time/buyer guards
-|cffff7777UBK:|r Ledger unavailable; captured evidence is retained. [string "ADDON_ROOT = '/workspace/scratch/c9389b18d1b5..."]:80: test unavailable
+|cffff7777UBK:|r Ledger unavailable; captured evidence is retained. [string "ADDON_ROOT = '/workspace/scratch/ee3605ecccdd..."]:80: test unavailable
 PASS: all five source types defer accounting, event storms coalesce, reopen invalidates old snapshot, overlapping windows wait for final close, failed reads retain evidence/unlock, saved pending session resumes
 PASS: actual core interaction-manager mailbox close clears both source and collection flags, schedules settlement, ignores unrelated services, handles missing enums, and tolerates both modern/legacy notifications
 RUN: auctionator_links_test.lua
@@ -25,6 +26,8 @@ RUN: prospect_ignore_prompt_test.lua
 PASS: ignore prompt lists exact ores, opening/declining does not mutate, explicit acceptance calls removal, optional Destroying continuation remains separate
 RUN: prospect_learning_test.lua
 PASS: five-ore evidence, ambiguous/incomplete/failed casts rejected, duplicate events ignored, zero-output denominator, per-five baseline blend, invalid Thorium prior excluded, automatic learning for all seven ores, retained samples / legacy off flag ignored, sample minimum, actual cast/loot event flow, byproducts excluded
+RUN: prospect_observer_test.lua
+PASS: production prospect observer accepts quantity plus true/false availability; numeric strings, nil, invalid and negative quantities remain bounded
 RUN: prospect_sessions_test.lua
 |cff33ff99UBK:|r Settled prospecting basis for i:10620 (relative market value).
 |cff33ff99UBK:|r Settled prospecting basis for i:10620 (relative market value).
