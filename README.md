@@ -41,11 +41,11 @@ These assessments use currently loaded TSM data. Open Market Inspector and scan 
 
 ### Follow an actual Khorium Bar examination
 
-In this session, a player reviews **83 Khorium Bars at 4.50g basis**, opens the assessment, then checks the **8.49g loaded reference** against a completed AH scan around **8.44g** and the actual TSM listings. [Follow the five-screen walkthrough](docs/KHORIUM-WALKTHROUGH.md) to see the recorded cost, estimated profit, live quote, and listings in sequence.
+In this session, a player reviews **83 Khorium Bars at 4.50g basis**, opens the assessment, then checks the **8.49g loaded reference** against a completed AH scan around **8.44g** and the actual TSM listings. [Follow the Khorium walkthrough](docs/KHORIUM-WALKTHROUGH.md) to see the recorded cost, estimated profit, live quote, and listings in sequence.
 
-![Position Intelligence with Khorium Bar's basis, price reference, profit per unit, quantity, and total profit](docs/screenshots/ubk-position-overview.jpg)
+![Position Intelligence with Khorium Bar's basis, price reference, profit per unit, quantity, and total profit](docs/screenshots/ubk-position-overview.png)
 
-![Khorium Bar's actual TSM listings beside UBK's recorded basis and completed live scan](docs/screenshots/ubk-khorium-tsm-listings.jpg)
+![Khorium Bar's actual TSM Browse search and first visible listings](docs/screenshots/ubk-khorium-tsm-listings.png)
 
 ## A cost is different from a sale price
 
@@ -62,10 +62,6 @@ This example concerns a configured cost input, not an unavoidable flaw in TSM. T
 These are real in-game captures from a player's existing UBK 1.6 session on
 7 September 2026. Prices and quantities describe that moment; they are not
 sample records installed with the addon.
-
-**Home:** coverage totals and buttons that lead directly to the relevant workspace.
-
-![UBK Home with cost coverage totals and workspace buttons](docs/screenshots/ubk-home.png)
 
 **Cost Coverage:** known, owned and unresolved quantities beside each item's basis
 and cost action. Filters, name search and sortable columns narrow the list.

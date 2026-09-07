@@ -1,11 +1,9 @@
-# Live UI captures
+# UBK interface captures
 
-Captured from the installed UBK 1.6 in-game UI on 7 September 2026, with the
-owner's permission. The original PNG captures contain the UBK window only.
-The Khorium walkthrough uses five original full-game JPG screenshots supplied
-by the owner, including the position tooltip and TSM Browse results.
-No displayed values were changed for the images.
+Captured from the owner's UBK 1.6 session on 7 September 2026, with permission.
+The documentation uses crops of the relevant UBK panels and TSM results.
+The crops preserve the original displayed text and values and exclude the
+surrounding character interface, bags, and chat.
 
-The walkthrough follows Position Intelligence, the Khorium assessment,
-recorded cost and loaded prices, a completed live AH scan, and TSM listings.
-See ../KHORIUM-WALKTHROUGH.md for the sequence and the source-data distinctions.
+The Khorium walkthrough distinguishes recorded cost, loaded market references,
+and a completed live scan. See ../KHORIUM-WALKTHROUGH.md.

@@ -1,6 +1,6 @@
 # From a holding to the AH: examining Khorium Bars
 
-An actual UBK 1.6 session on 7 September 2026, shown in the player's original screenshots. The player starts with Position Intelligence, checks the recorded cost and loaded market context, scans the live AH, and opens the listings in TSM. These are observations from that session, not current price advice or sample data installed with UBK.
+An actual UBK 1.6 session on 7 September 2026, shown through cropped views of the relevant UBK and TSM panels. The player starts with Position Intelligence, checks the recorded cost and loaded market context, scans the live AH, and opens the listings in TSM. These are observations from that session, not current price advice or sample data installed with UBK.
 
 ## 1. Find the holding
 
@@ -8,7 +8,7 @@ With **Show: All**, Position Intelligence ranks the holdings by **Profit / unit*
 
 Quantity and total profit stay beside the per-item ranking, so the player can see both the opportunity per bar and the size of the holding. The reference is loaded market data; no live scan has been performed yet in this sequence.
 
-![Position Intelligence showing Khorium Bars among the player's holdings](screenshots/ubk-position-overview.jpg)
+![Position Intelligence showing Khorium Bars among the player's holdings](screenshots/ubk-position-overview.png)
 
 ## 2. Read the assessment
 
@@ -16,7 +16,6 @@ Hovering Khorium Bar opens the reasoning and price levels. The tooltip identifie
 
 The same tooltip shows **49 units** as the estimated sales needed to cover this position's current basis, leaving **34 units**. That assumes sales at the displayed loaded reference and costs; it is not a record of completed sales.
 
-![Khorium Bar tooltip with cost evidence, estimated returns, recovery quantity, and buy and sell levels](screenshots/ubk-khorium-assessment.jpg)
 
 ## 3. Examine the recorded cost and market context
 
@@ -24,7 +23,7 @@ Clicking the row opens **Market Inspector** for Khorium Bar. The **4.50g basis**
 
 This is where the player checks what the first assessment was built from. The loaded data's age is shown as unknown in this session; it is not presented as a freshly observed listing.
 
-![Market Inspector separating recorded Khorium cost from loaded AuctionDB and realm references](screenshots/ubk-khorium-recorded.jpg)
+![Market Inspector separating recorded Khorium cost from loaded AuctionDB and realm references](screenshots/ubk-khorium-recorded.png)
 
 ## 4. Check the live AH
 
@@ -32,14 +31,13 @@ At the Auction House, **Scan Now** searches for the inspected item. This complet
 
 Scanning updates the live quote without replacing acquisition cost. The earlier captures include a previous completed scan with 934 units; the later count alone does not identify purchases, cancellations, or who changed the listings.
 
-![Completed Khorium Bar live scan showing 8.44g, 919 observed units, and its timestamp](screenshots/ubk-khorium-live-scan.jpg)
 
 ## 5. Open the listings in TSM
 
-**TSM Browse** opens the exact-item search. The results show sellers, stack sizes, and unit buyouts, with the lowest visible listing at **8g44s09c**. UBK remains open beside the results, keeping the recorded basis and completed scan in view while the player examines the market.
+**TSM Browse** opens the exact-item search. The results show sellers, stack sizes, and unit buyouts, with the lowest visible listing at **8g44s09c**. The image focuses on the exact-item search and its first visible listings; the player's surrounding interface is excluded.
 
 The sequence stops at examination. It shows how a player checks an opportunity before deciding what to do; it does not show a completed sale or realized profit.
 
-![TSM's exact Khorium Bar search with live listings beside UBK's recorded cost and scan result](screenshots/ubk-khorium-tsm-listings.jpg)
+![TSM's exact Khorium Bar search with the first visible live listings](screenshots/ubk-khorium-tsm-listings.png)
 
 [Return to the overview](../README.md) · [Position Intelligence instructions](../USER_GUIDE.md#position-intelligence)
