@@ -1,0 +1,23 @@
+name: Repair public documentation screenshots
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/repair-public-screenshots.yml, scripts/repair_public_screenshots.py]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ubk-draft-release
+  cancel-in-progress: false
+jobs:
+  repair:
+    if: github.repository == 'Jcplugs/UBK-Universal-Basis-Keeper' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Correct only documentation and verify the public downloads
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/repair_public_screenshots.py
