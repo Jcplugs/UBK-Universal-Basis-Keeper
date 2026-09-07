@@ -11,7 +11,7 @@ WINDOWS BUILD REQUIREMENTS
 - The .NET Framework C# compiler supplied with the Windows .NET Framework.
 
 BUILD
-Extract all of UBK-1.6-Source.zip to one folder. Run Build.cmd from that folder.
+Extract all of source.zip to one folder. Run Build.cmd from that folder.
 It delegates to installer/Build-Release.ps1, rebuilds the verified payload,
 compiles UBK-1.6-Setup.exe into the source root, and runs temporary fixture tests.
 It does not install into a WoW client. To install, close WoW and run that EXE.

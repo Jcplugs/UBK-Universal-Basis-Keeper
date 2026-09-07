@@ -39,6 +39,14 @@ Hover a holding for the reasoning behind its assessment: cost coverage, invested
 
 These assessments use currently loaded TSM data. Open Market Inspector and scan at the AH to check listings before acting; UBK leaves the buying and selling decisions with you.
 
+### Follow an actual Khorium Bar examination
+
+In this session, a player reviews **83 Khorium Bars at 4.50g basis**, opens the assessment, then checks the **8.49g loaded reference** against a completed AH scan around **8.44g** and the actual TSM listings. [Follow the five-screen walkthrough](docs/KHORIUM-WALKTHROUGH.md) to see the recorded cost, estimated profit, live quote, and listings in sequence.
+
+![Position Intelligence with Khorium Bar's basis, price reference, profit per unit, quantity, and total profit](docs/screenshots/ubk-position-overview.jpg)
+
+![Khorium Bar's actual TSM listings beside UBK's recorded basis and completed live scan](docs/screenshots/ubk-khorium-tsm-listings.jpg)
+
 ## A cost is different from a sale price
 
 Consider a hypothetical evening: you buy twenty Living Rubies at **55g each**, but your configured TSM material formula still values them at **30g**. A cut consuming one ruby appears to sell for **45g**.

@@ -24,6 +24,8 @@ Review what you hold against your recorded basis and loaded market prices. Each 
 
 Quick Wins requires fully covered, trusted costs, at least 15% estimated net return, and liquidity not marked thin. Profit estimates include the 5% AH cut and a reserve for one failed 24-hour deposit when vendor value is available. Incomplete costs remain **COST NEEDED**, with profit withheld. Loaded prices are estimates: check current AH listings before acting.
 
+See the [five-screen Khorium Bar examination](https://github.com/Jcplugs/UBK-Goblin/blob/main/docs/KHORIUM-WALKTHROUGH.md): 83 bars at 4.50g recorded basis, followed from the position assessment through a completed live scan and the TSM listings.
+
 ## Also in UBK 1.6
 
 - **Cost Coverage and TSM sources:** inspect missing costs, resolve unknown stock, and connect acquisition basis and recipe costs to your TSM workflow.
