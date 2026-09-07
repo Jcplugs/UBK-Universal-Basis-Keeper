@@ -153,11 +153,37 @@ Pending output types are withheld from Sell Above Basis, including bulk selectio
 
 Incomplete cast/loot evidence, uncertain delivery, or outputs leaving before settlement remain pending for review. Reload cannot repair missing evidence. Version 1.6 does not include a general historical reconstruction tool; preserve the recorded data and report the issue with the version and full message.
 
-## Positions, Watchlist, and other windows
+## Position Intelligence
+
+Open `/ubk position` and select Position Intelligence. Use it to review the stock you hold against its trusted acquisition basis and the currently loaded TSM price reference.
+
+| Show filter | What it includes |
+| --- | --- |
+| **Quick Wins** | Fully costed holdings with at least 15% estimated net return and liquidity not marked THIN. This is the default. |
+| **All** | All positions returned by the position engine, including holdings needing cost review. |
+| **Sell** | SELL HARD, SELL LIGHTLY, and HOLD / SELL SLOW assessments. |
+| **Add** | BUY ALL OF THEM and BUY SOME assessments, with their buy ceilings and supporting context. |
+| **Risk** | NO ADD, WATCH / THIN, and NO RECENT DATA assessments. |
+| **Cost review** | COST NEEDED: holdings without fully covered, trusted acquisition cost. |
+
+1. Choose **All** for a broad review or **Quick Wins** for the qualifying sale shortlist. Use **Refresh positions** after costs or loaded prices change; it refreshes the comparison without starting a live AH scan.
+2. Search a name or narrow by profession, item type, quality, and per-item profit. The search covers every page. Click headers to change sorting; use the horizontal scrollbar for more columns.
+3. Read **Basis**, **Price ref.**, and **Profit / unit** together. **Qty** and **Total profit** show the size of the holding separately. The default order ranks profit per item, so a large quantity alone does not send an item to the top.
+4. Hover the row for its assessment and reason, matching evidence updates, known and unresolved quantities, trusted invested gold, share of fully costed positions, net ROI, liquidity, and regional sale rate.
+5. Inspect the price levels in that tooltip. Buy levels are 10% and 15% below basis; sell levels target 5%, 15%, and 25% net return after the AH cut and deposit reserve. Supporting signals and concentration affect the assessment. These levels do not place orders or change your TSM operations.
+6. Left-click to inspect that item in **Market Inspector**, where **Scan Now** checks the open AH. Right-click to add it to **Watchlist** for follow-up.
+
+Estimated profit subtracts the 5% AH fee and, when vendor sell value is available, reserves one failed 24-hour deposit per item. Total profit assumes the fully costed holding sells at the loaded reference; it is not earned gold. Regional sale rate is market context, not your personal sell-through rate. Repeated supporting updates describe the evidence behind an assessment; they are not a guarantee of a future price.
+
+For qualifying profitable holdings, the tooltip can show how many units would recover the position's current basis and how many would remain as a **paid runner**. That calculation assumes the displayed net proceeds and becomes real only when those sales occur.
+
+**COST NEEDED** rows withhold profit and basis-backed action guidance. Resolve costs in Cost Coverage before relying on the assessment. A holding can also be absent when the engine has neither a usable basis nor its market fallback; use Cost Coverage for the full cost-review workflow.
+
+## Watchlist and other windows
 
 The **Name** search in Position Intelligence, Cost Coverage, and Sell Above Basis matches any part of the item name, ignores case, and covers all pages. It combines with available filters; **Clear** removes the search. Click column headers to reverse sorting. Wide tables scroll horizontally.
 
-Positions offers profession, item type, quality, and value filters. Watchlist keeps the date watching began, recorded acquisition dates where available, starting values, latest loaded minimum buyouts, and sale-rate context. Missing historic values stay missing. Chum investigates price signals; Cross-Pressure keeps related material opportunities and their progression together.
+Watchlist keeps the date watching began, recorded acquisition dates where available, starting values, latest loaded minimum buyouts, and sale-rate context. Missing historic values stay missing. Chum investigates price signals; Cross-Pressure keeps related material opportunities and their progression together.
 
 Settings fields provide hover explanations and examples. The Disenchanting Character field is location guidance for owned shredding stock, not an automatic mail instruction.
 
