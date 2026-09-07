@@ -59,7 +59,7 @@ def main():
     shutil.copytree(ROOT / 'docs', folder / 'docs', dirs_exist_ok=True)
     sums = ''.join(f'{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.relative_to(folder).as_posix()}\n'
                    for p in sorted(folder.rglob('*')) if p.is_file() and p.name != 'SHA256SUMS.txt')
-    (folder / 'SHA256SUMS.txt').write_text(sums, encoding='utf-8')
+    (folder / 'SHA256SUMS.txt').write_bytes(sums.encode('utf-8'))
     bundle = ROOT / 'dist' / f'UBK-{version}.zip'
     archive(bundle, [(f'{folder.name}/{p.relative_to(folder).as_posix()}', p.read_bytes()) for p in sorted(folder.rglob('*')) if p.is_file()])
     print(f'Packaged: {bundle.name}; installer + source in {folder.name}/')
