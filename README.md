@@ -16,7 +16,7 @@ TSM's Desktop Application is **optional and recommended**. UBK can track costs w
 
 ## Install and take a first look
 
-Download the [installer](installer.exe), [complete source ZIP](source.zip), or [full download folder](UBK-1.6.zip). The standalone addon is in [Interface/AddOns/UniversalBasisKeeper](Interface/AddOns/UniversalBasisKeeper).
+Download the [installer](installer.exe), [complete source ZIP](source.zip), or [full download folder](https://github.com/Jcplugs/UBK-Goblin/blob/main/UBK-1.6.zip). The standalone addon is in [Interface/AddOns/UniversalBasisKeeper](Interface/AddOns/UniversalBasisKeeper).
 
 1. Close WoW and run `installer.exe` for a new installation or an update.
 2. Choose the `_anniversary_` client folder containing `WowClassic.exe` and `Interface`. The installer checks for TSM, backs up supported old code, and preserves your local history and settings.
