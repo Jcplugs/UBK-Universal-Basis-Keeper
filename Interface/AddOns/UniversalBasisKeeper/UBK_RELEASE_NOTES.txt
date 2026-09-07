@@ -1,0 +1,54 @@
+Integration check addition
+- Reports a missing TSM-UBK integration in chat with the raid-warning sound after login.
+- Includes the addon folder for manual placement; the installer completes the TSM integration.
+
+Universal Basis Keeper 1.6
+Changes since 1.4
+
+Interface and everyday use
+- UBK brings its core, interface, dock, and scanner tools into one compact addon, with /ubk opening Home.
+- Added a draggable minimap button: left-click for Home, right-click for Sell Above Basis.
+- Sources & Integration lists all four native cost sources, connected custom aliases, availability, and examples. Its independent window stays open when UBK closes; clicking switches the foreground window.
+- Added name search across all pages of Position Intelligence, Cost Coverage, and Sell Above Basis.
+- Applied item-quality colors to affected tables and dialogs, and improved spacing around the Disenchanting Character setting.
+
+Costs and crafting
+- Improved fresh-account setup and TSM material-cost integration while preserving existing native-source configurations.
+- Added cost-ownership controls to adopt UBK material pricing and restore prior formulas.
+- Improved acquisition-basis handling with capture during AH, mailbox, trade, vendor, and loot activity, followed by queued settlement after transaction windows close.
+- Improved responsiveness during bulk mail collection and auction activity by sharing refresh work, preparing ledger history between frames, and avoiding repeated full-history invoice searches.
+- Improved transaction-close detection for Anniversary interaction windows, including mailbox settlement after walking away.
+- Added pending-accounting guidance in Cost Coverage and tooltips, normal-login resumption, and an optional local mailbox-tooltip preference.
+- Kept grey vendor trash out of coverage questions and extra basis tooltips; its World Drop / Farmed action uses vendor sell value when known.
+- Clarified the distinction between AH listing availability and paid acquisition basis.
+
+Market Inspector
+- Added Scan Now for the inspected item's live AH quote, with quantities, timestamp, and complete/partial status.
+- Added TSM Browse for the currently inspected item.
+- Added Scan Mats: learned-recipe shopping lists, quantities, material costs, AH quotes, vendor buy prices, and totals per craft/output. Known vendor supplies such as vials stay out of AH searches.
+- Added prospecting rates on ore Inspector pages, with expected raw gems per five ore, learned sample counts, and yield sources.
+
+Sell Above Basis
+- Added a bag checklist and temporary TSM Auctioning group with default 110% / 175% / 500% basis prices and up to ten singles per item type.
+- Added original-group journaling, the post-scan return prompt, reversal after failed moves, and logout/login return recovery across characters and profiles.
+- Added ubksellbasis for confirmed selling sessions and checks before restoring older integration with pending group returns.
+- Added category and basis-price boundaries, Select Matching, Select All, and Clear Selection.
+- Made minimum/normal/maximum percentages and posting cap editable, with previews and stack size fixed at one.
+
+Shredder and prospecting
+- Added a locally imported prospecting baseline and personal observations that strengthen raw-gem estimates.
+- Learning now runs automatically for all supported ores, including Thorium; existing observations are retained. When no usable baseline exists, estimates require twenty complete personal prospects.
+- Added Open TSM Destroying when bags contain more than five of a supported ore.
+- Added review of ores on TSM's Destroying ignore list and an explicit option to remove listed ores while preserving other ignores.
+- Added prospecting-session accounting after reload, pooling actual ore expenses and recorded outputs by session and ore type.
+- Added Thorium Powder vendor-value credit before gem cost allocation; powder remains outside pending gem inventory.
+- Added ore-cost resolution for unknown remaining ore and unknown inputs already consumed by recorded prospects.
+- Added pending prospecting indicators and Sell Above Basis controls, including sessions priced before new prospecting occurs.
+
+Installation and integration
+- The same generic installer serves new and existing users, migrates local settings where needed, archives obsolete code, and preserves saved history.
+- Added TSM-folder checking after the user selects a WoW directory, Check again, the CurseForge addon link, and the official Desktop Application setup link. TBC Anniversary-only support and required-addon/optional-app guidance are visible to everyone.
+- Added a successful-install confirmation and the -Jc installer signature.
+- Added UBK's TSM Integration for native sources, group/operation actions, live purchase records, and temporary-group recovery.
+- Added Shift-click chat linking in supported Auctionator Shopping results. Ctrl+Shift-click retains search-fill; open chat drafts take priority over Inspector capture.
+- Updated the first-use README, inside cover, basis explanation, user guide, and reproducible source build instructions.

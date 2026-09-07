@@ -1,0 +1,46 @@
+{
+  "files": [
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_RELEASE_NOTES.txt",
+      "sha256": "53c4285ad437ae010c38902b501eb4fedf41f85742bd2f9a2d03491739436fbc",
+      "baselineSha256": [
+        "4f8756ed8ba59bb5a814e03b57ca86a778a000fd35c66a03858cf8fa280a975f",
+        "345e550f8ac38798befff3d610eb188a42482ca9b89f7a778963eb897fcec276",
+        "3c833d5f97322990057fe13fb374d44daa4273a0cdb3f07f6c0177b4c679d5b1",
+        "cd0293f53c8dd07fbd8ddb368897b88d2712061c142e07215f84186bd9d77f6c",
+        "c8e8a77bb6f221166e65e59a791d55480ad7aba65a396200876b4d81056fe9ce",
+        "b7693ed3951531aec9053ec25095220a28a9fc4ea80584c7918e394992aa159d",
+        "4ab9b46b6610524d5fbb397126601a9d2e851cd7e6eebd05bf08d30c181be349",
+        "6165063cf80e2681907b7fd85e2b1f49ef4c3d2748e1cd9f5c293dc048fae4f4",
+        "47f7deabf816c99e31bbd948dd0e3eaa0535b63bba4222a5bdf6f1f85ebfc98b"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UniversalBasisKeeper.lua",
+      "sha256": "3d1bc4a820bf8798c1ee7d07554947d0c5970d2bb6dd219fb5b53557cf1e76d5",
+      "baselineSha256": [
+        "d8c02a9d3ce246f5d6dc604782272f728fdbc01a127d49105cb948d3d610d55e",
+        "3ce126b103460cbd4731a72babadb11c39be8cae99ddf832ad4564c0733bfc47",
+        "d7e20390c0908f933def16f31e6067260da257695fb18fdb4b0c7fc3821aeafd",
+        "300c506498ba2ee96794fd91ef85b2ddb8bc94b4a52f9d5a937a06179adb7bce",
+        "0dd53dec6c174d65efa2732f0173eaaa3b9f66e309a2268c806f04d81aad2dd4",
+        "d8273be69df25c9d170b43cc79caa26c9e8835e8fbf065aa044016a7c348e7c3",
+        "df4317a153d5c5a7ed55c368be29bfca1a729b0d45d12c4dc9ad35018ba5afd1",
+        "2f18d5d3b8595399e62577a44ea257999a8e5665e1e4d2622facaec16fa4dd22",
+        "8b242bf7ccdcf29b44effa50187a35932156b04c0cce4c9ae2208282d86d5bce"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UniversalBasisKeeper.toc",
+      "sha256": "86e0593aae45b1ad676295e123e3c399f5af30fc09f5eb6a1770f07245d798c5",
+      "baselineSha256": [
+        "2a13b61d273b9da0c5060e1d09e3ffa1cfbee780c69ab7fabf8d6a761c0cbd5b",
+        "321cd9bbc9ba85dcac822d01d891652c53b3b4910eea358fe662b65dd1044a17",
+        "1ab2b44bec6f84064baf6a3712eec67e8f6404e65cf992773710bcc888d456f8",
+        "67452ff78dce663cbf651826e7d82e7dafba4147511a6c7fc6f5696059520902",
+        "a4cdf925d0f76cd8ab06dc80c838938eab6bb761421153c9db84c05560e9133e",
+        "6708b4be2f4d7231c61a49060bf499bc029fbc6b98a4393c8cba96e7995befc3"
+      ]
+    }
+  ]
+}

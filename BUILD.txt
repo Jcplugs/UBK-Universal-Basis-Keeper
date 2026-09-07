@@ -1,0 +1,42 @@
+UNIVERSAL BASIS KEEPER 1.6 — BUILDING FROM SOURCE
+
+UBK requires TradeSkillMaster and supports TBC Anniversary realms only.
+New and existing users install the complete addon through UBK-1.6-Setup.exe.
+This source archive is for inspection and rebuilding; copying its addon folder
+into WoW does not install the required TSM integration.
+
+WINDOWS BUILD REQUIREMENTS
+- Windows PowerShell.
+- Python 3, available as py -3 or python.
+- The .NET Framework C# compiler supplied with the Windows .NET Framework.
+
+BUILD
+Extract all of UBK-1.6-Source.zip to one folder. Run Build.cmd from that folder.
+It delegates to installer/Build-Release.ps1, rebuilds the verified payload,
+compiles UBK-1.6-Setup.exe into the source root, and runs temporary fixture tests.
+It does not install into a WoW client. To install, close WoW and run that EXE.
+
+If you already have the release EXE, no build is required.
+
+SOURCE LAYOUT
+addon/        UniversalBasisKeeper addon; UBK_TSMBridge.lua is the integration
+              source deployed by the installer. Public yield-data placeholder.
+installer/    C# installer, PowerShell build helpers, migration/integrity fixtures.
+tests/        Lua behavior tests and supporting fixtures.
+docs/         Inside cover and basis explanation.
+scripts/      Release packaging and draft-preparation helpers.
+
+rebuild_payload.py generates the manifest and embedded payload from this tree.
+Build from generic source, not a copy of a player's installed addon. The public
+prospecting placeholder contains no locally imported baseline or personal yield
+observations; the installer can derive a validated baseline from the user's own
+separately installed TSM data.
+
+VERIFICATION AND DISTRIBUTION
+See VERIFICATION.txt for the recorded checks for this revision and
+STRESS-TESTS.md for live WoW checks. Installer self-tests use temporary fixtures;
+passing them does not launch WoW or certify in-game behavior.
+
+Exclude account SavedVariables, inventory snapshots, locally generated data,
+and private working files from a release. Building or preparing a draft does
+not publish a release or install it into a live client.

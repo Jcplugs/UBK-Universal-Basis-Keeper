@@ -1,0 +1,123 @@
+{
+  "version": "1.5.0",
+  "files": [
+    {
+      "path": "Interface/AddOns/GoblinIntelligence/GI_RELEASE_NOTES.txt",
+      "sha256": "a35ed54bd5a9af57fbdd2c1912dcf8ef6dea9ba38c5be086604832dabe9a7f9f",
+      "baselineSha256": [
+        "8fd79d1c4d0ee3f0dadde91c1eeb4dd6185a9e47b98f5670ffc1fdf9b147eb60"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/GoblinIntelligence/GoblinIntelligence.lua",
+      "sha256": "fe47ed430c0727627c60d0a82498b22a85d528d2f33ce38620918b60b5a2f741",
+      "baselineSha256": [
+        "90ca215042262c5c861a06d515ad8f0eb797adfe86901963868014f96765966e"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/GoblinIntelligence/GoblinIntelligence.toc",
+      "sha256": "f83d4230cb70a53525b091a002cb27e60cfb785301a8aacc39f0add8834e7e39",
+      "baselineSha256": [
+        "9296d7a907ec9ec80a2b857fb6d72cb04167884b3fe46cad357193339e9bf50f"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/GoblinIntelligence/UBK_PositionWatch.lua",
+      "sha256": "61ff30a2437fdcc036a37afbe8e43a6f2cbec79af61202904941cda2ea60ee0e",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/GoblinIntelligence/UBK_ProspectingUI.lua",
+      "sha256": "61254735559d799c4ab6979634e884db62a59041a75ff165fc03235533c06ac1",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/GoblinIntelligence/UBK_ShredInventoryUI.lua",
+      "sha256": "267d0513e932ed09e6f1a6360d8ca19bcce2b7c0d15f9b9ab7cf82c63979b69b",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/GoblinIntelligence/UBK_SourceGuide.lua",
+      "sha256": "510840d2e39a3229e37601060a5d0a9b2ddb74ffb979c81d0e47d7510f8f235a",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/GoblinIntelligence/UBK_TableUI.lua",
+      "sha256": "eaebe51ea52c4f9605baf6a87740ab053c013663da1ebe75f0ed72b325924232",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UBK_Scanners/SCANNERS_RELEASE_NOTES.txt",
+      "sha256": "304908ec98944ea68ec4766c1f059c7c10fff4914c3f9d559be00c36554a7b84",
+      "baselineSha256": [
+        "4475c3159bb57d2dd29340041c183311b87e8bf3b22221e4b89c5cb98374a31e"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UBK_Scanners/UBK_Scanners.lua",
+      "sha256": "7dd0a4b8b96110447e12035deb841f6000415dbe688c1a69ca97299cd6bb1d81",
+      "baselineSha256": [
+        "1e94aae0093842e32e614a7d107623ab7d8876b392651e2fab90a3d99066104c"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UBK_Scanners/UBK_Scanners.toc",
+      "sha256": "bbd5422a9d486a314382047155cb7256b03fbd51a531b0e35611e834a11de4a4",
+      "baselineSha256": [
+        "e183b2be8ec0903e59b197d43b5b00e2ba62ae317d42efe1a003a1045b9bd1cb"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/README.txt",
+      "sha256": "85352ae4adf5624f7c6378fed0400329c8b729cf0225b3d81296108374df8a67",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_Dock.lua",
+      "sha256": "8ddc59809a124ebc80b5d9ea76f3c8ad5012833399a78231852ed1417c98dfbc",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_InterfaceTools.lua",
+      "sha256": "3991a12b167bbbb028b79689a46619daf106fbe576cbaa470f47d76e4531aebe",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_Prospecting.lua",
+      "sha256": "17d12c3b6261edfcf2950d84992d9964144557bc29e995aff91e61c872182cf0",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_ProspectingData.lua",
+      "sha256": "3048f7d8496de8aa8df46c2b1549dfc512093498d3f12d8369b1fc51c486749f",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_RELEASE_NOTES.txt",
+      "sha256": "345e550f8ac38798befff3d610eb188a42482ca9b89f7a778963eb897fcec276",
+      "baselineSha256": [
+        "4f8756ed8ba59bb5a814e03b57ca86a778a000fd35c66a03858cf8fa280a975f"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_WindowFocus.lua",
+      "sha256": "b8605a84bcf1a0baaa7d097d9a46a6cde284723e912adbb8ed82dae915d999f2",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UniversalBasisKeeper.lua",
+      "sha256": "3ce126b103460cbd4731a72babadb11c39be8cae99ddf832ad4564c0733bfc47",
+      "baselineSha256": [
+        "d8c02a9d3ce246f5d6dc604782272f728fdbc01a127d49105cb948d3d610d55e"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UniversalBasisKeeper.toc",
+      "sha256": "321cd9bbc9ba85dcac822d01d891652c53b3b4910eea358fe662b65dd1044a17",
+      "baselineSha256": [
+        "2a13b61d273b9da0c5060e1d09e3ffa1cfbee780c69ab7fabf8d6a761c0cbd5b"
+      ]
+    }
+  ]
+}

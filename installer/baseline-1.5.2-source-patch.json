@@ -1,0 +1,150 @@
+{
+  "version": "1.5.2-source-patch",
+  "files": [
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/README.txt",
+      "sha256": "db4ba6221ae07b87429827f82b42231c119e0e3c376a33bf13cc3c4a335349f5",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_AuctionatorLinks.lua",
+      "sha256": "8e57b3d2991efd3f17239e480bd8ed8cea662c32a106f58f0ed97b35ac3da0b3",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_BasisSale.lua",
+      "sha256": "1e0810ec55bc005f1c035cbd8774f24af246a4256a4b8f5bdbd3a218e290fc57",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_BasisSaleUI.lua",
+      "sha256": "56604040b8c2b332564f96e510d8be546449ca2bce4e917c430ee889289a67c2",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_Dock.lua",
+      "sha256": "c5bb04742e2400fde406b6e1fee758aed172d2f1e04bbfa45203fa8dbc66e6be",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_Interface.lua",
+      "sha256": "050e3af43e2dbec9179163d9b521dca1a60fab407fc82964c0317f76eec6dd55",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_InterfaceTools.lua",
+      "sha256": "246797acc90b6aacad5f3d649f5da65eacb4f25ebe2cea9e494ae41b60f2034b",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_ItemRules.lua",
+      "sha256": "fc2d3805ae899e33cb419b15681525a2c814c6b9a0d15d4581c9a82a8c05bb59",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_LiveTooltip.lua",
+      "sha256": "f6f929e7849f970ca69dfa5c222507126783d192784caf4b1157952b3cdb6146",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_MarketActions.lua",
+      "sha256": "6a84992a6452450e7ba947423d92c50c7e9c988ecb2dbca24707e64a64e10dc9",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_MaterialScan.lua",
+      "sha256": "286f771b1b4e9475cb50c29579f6a12a99bc8eee246cd28b0b57711da9a4eff9",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_Minimap.lua",
+      "sha256": "c60cb647bd69c1f8c3c51c969aa98f72f609e1b5a2d1f7ec2c9b62e3a1c033d1",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_PositionWatch.lua",
+      "sha256": "f084fa06da1b6938cca5b0f41cb3907b190fbbe2081ab1d1b606b730022481c9",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_Prospecting.lua",
+      "sha256": "eaa0a3f0cf7ba5d22ee9d0f4c012f9b1221681dc8a5f5e816da4890779b52040",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_ProspectingData.lua",
+      "sha256": "3048f7d8496de8aa8df46c2b1549dfc512093498d3f12d8369b1fc51c486749f",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_ProspectingLearning.lua",
+      "sha256": "4c965e70a0ed3ef95295e618b0717dd7c24c97aa03ee8cac4cfeef0d1cf8b2ff",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_ProspectingSessions.lua",
+      "sha256": "808430e0de06c4c081ef1c57fb7b8f33b3d01acfaf2c256d0faac4c1bac7603b",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_ProspectingUI.lua",
+      "sha256": "b0c66bfad116cd4e153c576acb92c40ae78a4b6bd0cdc8f8dfedfeb34fb1b8d0",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_PurchaseLedger.lua",
+      "sha256": "92301c972724fe226704e1cd0c855401e2fb7246f4f6f32ef68c4bad3cb29a74",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_RELEASE_NOTES.txt",
+      "sha256": "cd0293f53c8dd07fbd8ddb368897b88d2712061c142e07215f84186bd9d77f6c",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_Scanners.lua",
+      "sha256": "ad8c01bb9efbfe262bdf42f09fe410bffc276d94a888fabf18a6a8f613dc42ec",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_ShredInventoryUI.lua",
+      "sha256": "267d0513e932ed09e6f1a6360d8ca19bcce2b7c0d15f9b9ab7cf82c63979b69b",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_SourceGuide.lua",
+      "sha256": "27053085599b6a1f373bc0397dc7220b9ac68b9d0c82d6ec42ba7d62967e19e1",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_TSMBridge.lua",
+      "sha256": "2b26be89464c4de68facdaf13286f38ce3d13682159b1e3a1c10844cebc24a03",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_TableUI.lua",
+      "sha256": "f0cea6e58729268a849280f66adf12e705748558f1a5f0d8216e928d8c161861",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_WindowFocus.lua",
+      "sha256": "25e8244bdc447f66d78798ef6205432632fc1989b6027d155cb89eae461c17a7",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/USER_GUIDE.md",
+      "sha256": "6a9c29d2145cdf2a0a4ab7528cd77faa313d920d61dd8726c090e0ccfe889349",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UniversalBasisKeeper.lua",
+      "sha256": "300c506498ba2ee96794fd91ef85b2ddb8bc94b4a52f9d5a937a06179adb7bce",
+      "baselineSha256": []
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UniversalBasisKeeper.toc",
+      "sha256": "67452ff78dce663cbf651826e7d82e7dafba4147511a6c7fc6f5696059520902",
+      "baselineSha256": []
+    }
+  ]
+}

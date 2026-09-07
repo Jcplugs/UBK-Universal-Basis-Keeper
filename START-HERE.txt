@@ -1,0 +1,58 @@
+UNIVERSAL BASIS KEEPER — UBK 1.6
+Every item has a price. Your inventory has a story.
+
+COMPLETE ADDON — FOR TBC ANNIVERSARY REALMS ONLY
+The TradeSkillMaster addon is required. UBK does not work without it.
+Version 1.6 includes the complete addon and its TSM integration. New and
+existing users install through the EXE; no separate patch is needed.
+
+INSTALL OR UPDATE
+1. Install the TradeSkillMaster addon for WoW TBC Anniversary first.
+2. Close WoW normally.
+3. Run installer.exe.
+4. Select the _anniversary_ client folder containing WowClassic.exe and Interface.
+5. The installer checks for the TradeSkillMaster addon folder. If missing,
+   use its download link, install TSM, and choose Check again.
+6. Click Install and wait for the UBK is installed confirmation.
+7. Open WoW, enable UBK, and use /ubk or the minimap button.
+
+Supported old code is backed up; local UBK settings and history are preserved.
+Start with Cost Coverage and Settings > TSM Sources & Integration, then check a
+familiar recipe. Installing UBK does not replace all your personal TSM operations.
+
+TSM DESKTOP APPLICATION — OPTIONAL AND RECOMMENDED
+UBK tracks costs without the Desktop App. Refreshed market data gives your
+auctioning comparisons more useful information. The installer and USER_GUIDE.md
+include the official setup link. The installer does not search for the Desktop
+App or identify the TSM version in its folder-presence check.
+
+IF YOU DOWNLOADED SOURCE
+source.zip contains addon and installer code, tests, and documentation.
+It is for reading or rebuilding. Do not copy its addon folder directly into WoW:
+that would omit the installer-managed TSM integration.
+
+If installer.exe is not beside this file, obtain the installer from the same
+release, or extract all source and follow BUILD.txt. Build.cmd creates an EXE;
+it does not install into WoW. Run the resulting EXE to install the complete addon.
+
+RESTORATION
+Close WoW and use the installer's Restore a backup control when needed. Backups
+are under the chosen client's UBK-Companion-Backups folder. Resolve any pending
+Sell Above Basis group returns before restoring older integration code. Keep
+current SavedVariables; restoring an older data checkpoint also discards later
+transactions and settings.
+
+READ NEXT
+USER_GUIDE.md explains the tools and cost sources. UBK_RELEASE_NOTES.txt covers
+changes since 1.4. The source's VERIFICATION.txt records completed checks;
+STRESS-TESTS.md covers in-game checks such as mailbox receipts, group return,
+and prospecting settlement. Reload and settle prospecting outputs before
+selling or consuming them.
+
+Manual placement option
+The public folder also includes Interface/AddOns/UniversalBasisKeeper. You can
+copy that addon into your WoW client. TSM is still required. If its UBK
+integration has not been installed, UBK warns once after login with a raid sound:
+"UBK Loaded Incorrectly, TSM-UBK integration failure. Please run installer again to patch."
+Close WoW and run installer.exe to complete that integration. An existing working
+integration does not need reinstalling simply because you copied addon files.

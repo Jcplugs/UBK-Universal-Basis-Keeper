@@ -1,0 +1,56 @@
+PASS: syntax 26 Lua files
+RUN: accounting_batch_test.lua
+PASS: 50,000 historical + 90 new purchases parsed once in <=300-row steps, exact 2,700g cost, read-only preparation, empty replay, duplicate invoice/seller/time/buyer guards
+|cffff7777UBK:|r Ledger unavailable; captured evidence is retained. [string "ADDON_ROOT = '/workspace/scratch/c9389b18d1b5..."]:80: test unavailable
+PASS: all five source types defer accounting, event storms coalesce, reopen invalidates old snapshot, overlapping windows wait for final close, failed reads retain evidence/unlock, saved pending session resumes
+PASS: actual core interaction-manager mailbox close clears both source and collection flags, schedules settlement, ignores unrelated services, handles missing enums, and tolerates both modern/legacy notifications
+RUN: auctionator_links_test.lua
+PASS: Auctionator Shift-left links to active/new chat drafts without sending; Ctrl+Shift/search and normal/right clicks retain original behavior; existing/future rows patched, other frames untouched, idempotent install; chat priority over Inspector
+RUN: basis_sale_test.lua
+|cff33ff99UBK:|r Items returned to their original groups. Existing group operations were preserved.
+PASS: selection, full pre-move journal, captured prices, no nested session, original/ungrouped return, rollback after a setter writes then fails, external move conflict, deleted and renamed origins, cross-profile recovery, login recovery, completion prompt waits for Post/Skip, missing-cost rejection
+PASS: ordered positive posting percentages, whole single-item cap, session snapshot, bag-limited preview and original-group return with custom settings
+PASS: pending output exclusion from price fallback, rows, bulk selection, stale confirmation and already-active session source; return journal remains usable
+RUN: cost_scan_test.lua
+PASS: vendor-only grey classification including zero/missing quotes; purchase pool preserved; common/uncommon colors; non-grey rule unchanged; uncached grey loot skipped; one-item scan targets inspected item and rejects closed AH / missing cache
+RUN: focus_test.lua
+PASS: Sources and main trade focus, nested dialog independently raised, Sources survives main close, external TSM click lowers UBK
+RUN: integration_health_test.lua
+PASS: missing/incomplete integration warns once with raid sound; healthy and delayed initialization stay quiet; startup checks bounded
+RUN: market_actions_test.lua
+PASS: current-item TSM handoff, scan/closed-AH guards, >5 same-ore bag threshold across stacks, no bank/nonprospectable ore, exact destroy command, combat guard
+RUN: material_scan_test.lua
+PASS: recipe/faction scope, quantities/output, vendor exclusions including unknown-price vials, no empty scans, complete quote totals, missing/partial/low-stock states, stale-scan rejection, unavailable AH/cache
+RUN: prospect_ignore_prompt_test.lua
+PASS: ignore prompt lists exact ores, opening/declining does not mutate, explicit acceptance calls removal, optional Destroying continuation remains separate
+RUN: prospect_learning_test.lua
+PASS: five-ore evidence, ambiguous/incomplete/failed casts rejected, duplicate events ignored, zero-output denominator, per-five baseline blend, invalid Thorium prior excluded, automatic learning for all seven ores, retained samples / legacy off flag ignored, sample minimum, actual cast/loot event flow, byproducts excluded
+RUN: prospect_sessions_test.lua
+|cff33ff99UBK:|r Settled prospecting basis for i:10620 (relative market value).
+|cff33ff99UBK:|r Settled prospecting basis for i:10620 (relative market value).
+|cff33ff99UBK:|r Settled prospecting basis for i:2770 (relative market value).
+|cff33ff99UBK:|r Settled prospecting basis for i:10620 (quantity fallback: incomplete market references).
+|cff33ff99UBK:|r Settled prospecting basis for i:10620 (relative market value).
+|cff33ff99UBK:|r Settled prospecting basis for i:10620 (relative market value).
+|cff33ff99UBK:|r Settled prospecting basis for i:10620 (relative market value).
+|cff33ff99UBK:|r Settled prospecting basis for i:10620 (relative market value).
+PASS: pooled relative-value allocation, ore/session isolation, frozen quotes, exact cost conservation, preserved losses, labeled fallback, existing-stock blend, reload idempotence, unknown consumed/remaining ore and stale preview guards, current-session hold, incomplete/outflow blocks, atomic multi-output settlement, reserved-lot separation, input coverage and scope isolation
+|cff33ff99UBK:|r Settled prospecting basis for i:10620 (relative market value).
+PASS: actual cast/loot event flow captures pre-outflow ore cost, blocks outputs before collection, excludes ordinary imputation, validates delivery, deduplicates notifications and settles once after reload
+PASS: consumed ore inventory lag withholds resolution until the source quantity catches up
+PASS: actual ore resolver prompt, separate preview/confirm, stale session re-review, consumed-plus-remaining resolution, and normal resolver mode reset
+|cff33ff99UBK:|r Settled prospecting basis for i:10620 (relative market value).
+PASS: actual powder capture, frozen vendor credit, powder sale does not reserve/block gem settlement, exact input/credit/gem-cost reconciliation, replay protection, missing/zero vendor values, excess credit, legacy output classification
+RUN: purchase_receipt_test.lua
+PASS: 95 paid units resolved after mailbox close; repeated and growing records, faction isolation, invoice dedupe, legacy quantity migration, settled inventory and open-tooltip refresh
+PASS: 90 Dawnstones at 29g/30g/31g collected individually; each paid amount updates the pool, repeated passes and saved/live replay do not double-count; invoice-only delivery works without CSV; prospect reservations cannot be claimed as purchases
+RUN: table_search_test.lua
+PASS: case-insensitive literal search across 200 rows, combined filters, inclusive gold boundaries, invalid ranges, all-page selection and unavailable-item exclusions
+RUN: tsm_bridge_test.lua
+|cff33ff99UBK:|r Recovered the previous Sell Above Basis session. Items are back in their original groups.
+PASS: deferred bridge readiness, four sources, existing names and operations preserved, exact requested prices, unrelated inheritance removed only on new bucket, edited-operation rejection, exact nil ungrouping, queue callback, TSM-side recovery without UBK on another profile
+PASS: checked TSM Browse adapter refuses Auctioning/busy state; live buy query scopes realm/type, preserves stack/quantity/unit price and releases query
+PASS: custom percentages and cap applied to owned operation only; exact singles and external-edit protection retained
+PASS: ore-only ignore inspection, query release, full-request validation, snapshot-only/idempotent removal, other ignores preserved and session-skip guidance
+|cffffcc00UBK:|r Posting blocked: this Sell Above Basis session contains pending prospecting gems. Return Items, or reload and settle before running a fresh Post Scan.
+PASS: final TSM post-processing guard stops already-prepared queues containing pending Sell Above Basis gems; ordinary post behavior/arguments preserved when clear

@@ -1,0 +1,202 @@
+{
+  "version": "1.5.2",
+  "files": [
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/README.txt",
+      "sha256": "9bb1e2ed3d0e3e09fb58d076212fd385500a34a01a4f92f16e1dcbf92528fc19",
+      "baselineSha256": [
+        "85352ae4adf5624f7c6378fed0400329c8b729cf0225b3d81296108374df8a67",
+        "84fb2c592728c4dce3dc77e4019466ff11c991736ac645aa36aa358ed2701d29"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_BasisSale.lua",
+      "sha256": "eeaed02e87f9f3b64c4acec5ab93887d95830fb6b92bb8732baf5ff402ff5fb7",
+      "baselineSha256": [
+        "eeaed02e87f9f3b64c4acec5ab93887d95830fb6b92bb8732baf5ff402ff5fb7"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_BasisSaleUI.lua",
+      "sha256": "b652f08227412578d93636978b68fb8281faa4660c0250f796f523846daba422",
+      "baselineSha256": [
+        "b652f08227412578d93636978b68fb8281faa4660c0250f796f523846daba422"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_Dock.lua",
+      "sha256": "c5bb04742e2400fde406b6e1fee758aed172d2f1e04bbfa45203fa8dbc66e6be",
+      "baselineSha256": [
+        "8ddc59809a124ebc80b5d9ea76f3c8ad5012833399a78231852ed1417c98dfbc",
+        "205eeb019bcd921cd8f8ed510d033c6034239af0d76c95420ae043dd6ebbfd43"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_Interface.lua",
+      "sha256": "05bfaf6a7d4ff664902dd98cf527c04bfaab0d0cc7c5009fe7c9e4a8fe3244d4",
+      "baselineSha256": [
+        "6132fc13283bfd8ed24d2d6efec32a4aec0a49f59e4dd0b5a8f844d68ff02822"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_InterfaceTools.lua",
+      "sha256": "246797acc90b6aacad5f3d649f5da65eacb4f25ebe2cea9e494ae41b60f2034b",
+      "baselineSha256": [
+        "3991a12b167bbbb028b79689a46619daf106fbe576cbaa470f47d76e4531aebe",
+        "246797acc90b6aacad5f3d649f5da65eacb4f25ebe2cea9e494ae41b60f2034b"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_ItemRules.lua",
+      "sha256": "fc2d3805ae899e33cb419b15681525a2c814c6b9a0d15d4581c9a82a8c05bb59",
+      "baselineSha256": [
+        "fc2d3805ae899e33cb419b15681525a2c814c6b9a0d15d4581c9a82a8c05bb59"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_Minimap.lua",
+      "sha256": "c60cb647bd69c1f8c3c51c969aa98f72f609e1b5a2d1f7ec2c9b62e3a1c033d1",
+      "baselineSha256": [
+        "c60cb647bd69c1f8c3c51c969aa98f72f609e1b5a2d1f7ec2c9b62e3a1c033d1"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_PositionWatch.lua",
+      "sha256": "61ff30a2437fdcc036a37afbe8e43a6f2cbec79af61202904941cda2ea60ee0e",
+      "baselineSha256": [
+        "61ff30a2437fdcc036a37afbe8e43a6f2cbec79af61202904941cda2ea60ee0e"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_Prospecting.lua",
+      "sha256": "eaa0a3f0cf7ba5d22ee9d0f4c012f9b1221681dc8a5f5e816da4890779b52040",
+      "baselineSha256": [
+        "17d12c3b6261edfcf2950d84992d9964144557bc29e995aff91e61c872182cf0",
+        "eaa0a3f0cf7ba5d22ee9d0f4c012f9b1221681dc8a5f5e816da4890779b52040"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_ProspectingData.lua",
+      "sha256": "3048f7d8496de8aa8df46c2b1549dfc512093498d3f12d8369b1fc51c486749f",
+      "baselineSha256": [
+        "3048f7d8496de8aa8df46c2b1549dfc512093498d3f12d8369b1fc51c486749f"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_ProspectingLearning.lua",
+      "sha256": "e5f27a35f253bdffb65d71d87a21288133870ef11c4cd867927d66db6cd48b6f",
+      "baselineSha256": [
+        "e5f27a35f253bdffb65d71d87a21288133870ef11c4cd867927d66db6cd48b6f"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_ProspectingUI.lua",
+      "sha256": "ae78805351c4402aaf0409164833bcdc3cf1c55dc660149e907e96c08e3eeeb3",
+      "baselineSha256": [
+        "ae78805351c4402aaf0409164833bcdc3cf1c55dc660149e907e96c08e3eeeb3"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_RELEASE_NOTES.txt",
+      "sha256": "c8e8a77bb6f221166e65e59a791d55480ad7aba65a396200876b4d81056fe9ce",
+      "baselineSha256": [
+        "4f8756ed8ba59bb5a814e03b57ca86a778a000fd35c66a03858cf8fa280a975f",
+        "345e550f8ac38798befff3d610eb188a42482ca9b89f7a778963eb897fcec276",
+        "3c833d5f97322990057fe13fb374d44daa4273a0cdb3f07f6c0177b4c679d5b1"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_Scanners.lua",
+      "sha256": "ad8c01bb9efbfe262bdf42f09fe410bffc276d94a888fabf18a6a8f613dc42ec",
+      "baselineSha256": [
+        "46bf0dabc51d374d699b307082e209175470c67b1e86aaee6628e5f0b9cc6462"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_ShredInventoryUI.lua",
+      "sha256": "267d0513e932ed09e6f1a6360d8ca19bcce2b7c0d15f9b9ab7cf82c63979b69b",
+      "baselineSha256": [
+        "267d0513e932ed09e6f1a6360d8ca19bcce2b7c0d15f9b9ab7cf82c63979b69b"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_SourceGuide.lua",
+      "sha256": "27053085599b6a1f373bc0397dc7220b9ac68b9d0c82d6ec42ba7d62967e19e1",
+      "baselineSha256": [
+        "27053085599b6a1f373bc0397dc7220b9ac68b9d0c82d6ec42ba7d62967e19e1"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_TSMBridge.lua",
+      "sha256": "83153aa703728b7ff6cf4f86190a318ac363e2d602f7567f34cc45e9911e0b24",
+      "baselineSha256": [
+        "83153aa703728b7ff6cf4f86190a318ac363e2d602f7567f34cc45e9911e0b24"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_TableUI.lua",
+      "sha256": "ed7db8cf1bf20b9de806269ee22114d084d8c8e321cbe05391bc61626000a98b",
+      "baselineSha256": [
+        "ed7db8cf1bf20b9de806269ee22114d084d8c8e321cbe05391bc61626000a98b"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UBK_WindowFocus.lua",
+      "sha256": "25e8244bdc447f66d78798ef6205432632fc1989b6027d155cb89eae461c17a7",
+      "baselineSha256": [
+        "b8605a84bcf1a0baaa7d097d9a46a6cde284723e912adbb8ed82dae915d999f2",
+        "25e8244bdc447f66d78798ef6205432632fc1989b6027d155cb89eae461c17a7"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/USER_GUIDE.md",
+      "sha256": "a634152024157f7e420f9c179f5e985ea2be5100c855cba867e5cda274ae4819",
+      "baselineSha256": [
+        "bd62d70291bca9af71a5cbfe7ce3ecfcb77a9303c88846c3c22bc9a07288807d"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UniversalBasisKeeper.lua",
+      "sha256": "0dd53dec6c174d65efa2732f0173eaaa3b9f66e309a2268c806f04d81aad2dd4",
+      "baselineSha256": [
+        "d8c02a9d3ce246f5d6dc604782272f728fdbc01a127d49105cb948d3d610d55e",
+        "3ce126b103460cbd4731a72babadb11c39be8cae99ddf832ad4564c0733bfc47",
+        "d7e20390c0908f933def16f31e6067260da257695fb18fdb4b0c7fc3821aeafd"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UniversalBasisKeeper/UniversalBasisKeeper.toc",
+      "sha256": "a4cdf925d0f76cd8ab06dc80c838938eab6bb761421153c9db84c05560e9133e",
+      "baselineSha256": [
+        "2a13b61d273b9da0c5060e1d09e3ffa1cfbee780c69ab7fabf8d6a761c0cbd5b",
+        "321cd9bbc9ba85dcac822d01d891652c53b3b4910eea358fe662b65dd1044a17",
+        "1ab2b44bec6f84064baf6a3712eec67e8f6404e65cf992773710bcc888d456f8"
+      ]
+    }
+  ],
+  "retire": [
+    {
+      "path": "Interface/AddOns/GoblinIntelligence/GoblinIntelligence.toc",
+      "sha256": null,
+      "baselineSha256": [
+        "9296d7a907ec9ec80a2b857fb6d72cb04167884b3fe46cad357193339e9bf50f",
+        "f83d4230cb70a53525b091a002cb27e60cfb785301a8aacc39f0add8834e7e39"
+      ]
+    },
+    {
+      "path": "Interface/AddOns/UBK_Scanners/UBK_Scanners.toc",
+      "sha256": null,
+      "baselineSha256": [
+        "e183b2be8ec0903e59b197d43b5b00e2ba62ae317d42efe1a003a1045b9bd1cb",
+        "bbd5422a9d486a314382047155cb7256b03fbd51a531b0e35611e834a11de4a4"
+      ]
+    }
+  ],
+  "TsmBridge": {
+    "Source": "Interface/AddOns/UniversalBasisKeeper/UBK_TSMBridge.lua",
+    "Version": "v4.14.76",
+    "TocHashes": [
+      "bf8643b0f5a45689487f8ea7fb289c56ee240159b2227da08771c7b71e26fcfe"
+    ]
+  }
+}

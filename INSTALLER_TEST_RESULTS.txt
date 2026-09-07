@@ -1,0 +1,10 @@
+UBK installer fixture results
+Executed against isolated temporary fixtures. No live WoW installation was changed.
+PASS: embedded manifest, allowed paths and every payload hash validated (version 1.6).
+PASS: TBC Anniversary folder required; other Classic/Retail branches and renamed client roots rejected before writes, even with a Classic executable and TSM folder present.
+PASS: dependency checked only in the selected client; no loader/version read for presence; missing TSM rejects before writes; Install blocked until present; rechecking a changed folder updates readiness; actual installer preview rendered off-screen.
+PASS: upgrade, missing addon, generated-data fallback and actual receipt hash, idempotence, intact SavedVariables/TSM sentinels, conflict rejection before mutation, reversible restore, failure rollback, preserving a concurrent external edit, forbidden paths, arbitrary fixture-path rejection, fresh install.
+PASS: data-only parser including escaped/long strings and large numeric tables; malformed/executable data rejected; two-account migration; existing unified state wins; basis preserved; legacy folder/code archive with loose local data preserved; idempotence; restore carries newer interface settings back while preserving newer basis; failure after data write rolls back; success wording.
+PASS: known source-patch integration upgrades without an older installer receipt; original bridge backup and restoration; unknown integration edits still rejected before mutation.
+PASS: checked TSM loader and separate UBK bridge, same-file group journal declaration, loader-edit refusal before mutation, idempotent repeat, pending-session restore block, no false journal detection in strings, byte-exact loader restoration, TSM saved data preserved, rollback after bridge write.
+These checks do not verify live mailbox behavior or in-game UI behavior.

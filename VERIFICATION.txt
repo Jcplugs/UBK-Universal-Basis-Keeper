@@ -1,0 +1,27 @@
+Universal Basis Keeper 1.6 — draft verification
+
+PASS: all 25 addon Lua files pass syntax checks.
+PASS: all 13 Lua behavior suites pass; see LUA_TEST_RESULTS.txt.
+The accounting batch regression covers 50,000 historical rows plus 90 new
+purchases in at most 300 rows per scheduled step, exact paid costs, duplicate
+claims, source-window deferral, event coalescing, reopen invalidation, and
+failed-read recovery, and actual core handling of interaction-manager mailbox
+closure (including duplicate legacy/modern notifications). This is a synthetic correctness check, not an in-game
+frame-time benchmark.
+
+These cover purchase delivery and replay, prospecting observation and settlement,
+unknown-cost resolution, pending-output posting controls, group recovery,
+material scans, source integration, ignore-list review, linking, and table search.
+
+PASS: draft-release tests reject published or ambiguous release state and
+require draft=true with make_latest=false. They make no network requests.
+
+The installer build runs isolated temporary-client fixtures and writes
+INSTALLER_TEST_RESULTS.txt. It never installs into a real WoW folder during
+these tests. The payload builder checks version agreement, exact file hashes,
+complete TOC loading, and the public yield-data placeholder.
+
+Automated checks do not certify live WoW event timing or rendered UI.
+Use STRESS-TESTS.md for in-game mailbox, prospecting, scan and group-return
+checks before publishing the release. No live installation was performed
+while preparing this draft. Profit estimates are not sale guarantees.

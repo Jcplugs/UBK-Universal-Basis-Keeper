@@ -1,0 +1,42 @@
+name: Prepare UBK draft release
+on:
+  push:
+    branches: [main]
+    paths: [release.json]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ubk-draft-release
+  cancel-in-progress: false
+jobs:
+  source-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Install Lua test runtime
+        run: sudo apt-get update && sudo apt-get install -y liblua5.4-0
+      - name: Check addon behavior and unpublished-release protection
+        run: |
+          python3 tests/run_lua.py
+          python3 -m unittest discover -s tests -p '*_test.py'
+  draft:
+    needs: source-tests
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Build installer and run isolated fixtures
+        shell: powershell
+        run: ./installer/Build-Release.ps1
+      - name: Package complete source and installer
+        run: python scripts/package_release.py
+      - name: Prepare draft and upload assets (never publish)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/prepare_github_draft.py

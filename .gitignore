@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.exe
+payload.zip
+dist/
+.github-release-result.json

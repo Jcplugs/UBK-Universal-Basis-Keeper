@@ -1,0 +1,35 @@
+## Interface: 20506
+## Title: Universal Basis Keeper
+## Notes: Acquisition costs, cost coverage, crafting tools, prospecting, watchlists, and market workspaces for TBC Anniversary.
+## Author: UBK contributors
+## Version: 1.6
+## RequiredDeps: TradeSkillMaster
+## OptionalDeps: TradeSkillMaster_AppHelper, Auctionator
+## SavedVariables: UniversalBasisKeeperDB, UBKInterfaceDB, UBKScannersDB
+
+UBK_ItemRules.lua
+UBK_PurchaseLedger.lua
+UBK_LiveTooltip.lua
+UniversalBasisKeeper.lua
+UBK_InterfaceTools.lua
+UBK_ProspectingData.lua
+UBK_ProspectingSessions.lua
+UBK_ProspectingLearning.lua
+UBK_Prospecting.lua
+UBK_WindowFocus.lua
+UBK_BasisSale.lua
+UBK_Dock.lua
+UBK_Scanners.lua
+UBK_TableUI.lua
+UBK_MaterialScan.lua
+UBK_MarketActions.lua
+UBK_PositionWatch.lua
+UBK_ProspectingUI.lua
+UBK_ShredInventoryUI.lua
+UBK_SourceGuide.lua
+UBK_BasisSaleUI.lua
+UBK_Interface.lua
+UBK_AuctionatorLinks.lua
+UBK_Minimap.lua
+
+UBK_IntegrationHealth.lua
