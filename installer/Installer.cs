@@ -14,8 +14,9 @@ using System.Windows.Forms;
 
 [assembly: AssemblyTitle("Universal Basis Keeper UBK")]
 [assembly: AssemblyProduct("Universal Basis Keeper UBK")]
-[assembly: AssemblyVersion("1.6.0.0")]
-[assembly: AssemblyFileVersion("1.6.0.0")]
+[assembly: AssemblyVersion("1.6.1.1")]
+[assembly: AssemblyFileVersion("1.6.1.1")]
+[assembly: AssemblyInformationalVersion("1.6.1a")]
 
 namespace UBKCompanionInstaller
 {

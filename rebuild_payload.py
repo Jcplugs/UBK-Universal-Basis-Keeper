@@ -2,12 +2,14 @@
 from pathlib import Path
 import hashlib
 import json
-import re
 import zipfile
+from scripts.release_metadata import validate_build_versions
 
 ROOT = Path(__file__).resolve().parent
 ADDON_ROOT = ROOT / 'addon'
 UBK = ADDON_ROOT / 'Interface/AddOns/UniversalBasisKeeper'
+config = validate_build_versions(ROOT)
+version = config['version']
 previous = {}
 for baseline_path in sorted((ROOT / 'installer').glob('baseline-*.json')):
     baseline = json.loads(baseline_path.read_text(encoding='utf-8'))
@@ -17,11 +19,6 @@ for baseline_path in sorted((ROOT / 'installer').glob('baseline-*.json')):
             previous[entry['path']].append(entry['sha256'])
 if not previous:
     raise ValueError('Historical update hashes are missing.')
-# Reject mismatched executable/addon versions before creating build inputs.
-version = re.search(r'^## Version:\s*(\S+)', (UBK / 'UniversalBasisKeeper.toc').read_text(encoding='utf-8'), re.M).group(1)
-assembly_version = version + '.0' * (4 - len(version.split('.')))
-for source in ['Installer.cs', 'Installer.manifest']:
-    assert assembly_version in (ROOT / 'installer' / source).read_text(encoding='utf-8'), 'Installer version differs from addon version'
 
 def older_hashes(path):
     return list(dict.fromkeys(previous.get(path, [])))
@@ -35,6 +32,13 @@ for path in sorted(ADDON_ROOT.rglob('*')):
         raise ValueError('Public payload must contain only UniversalBasisKeeper: ' + relative)
     if path.suffix not in {'.lua', '.toc', '.txt', '.md'}:
         raise ValueError('Unexpected distributable file: ' + relative)
+    if path.suffix == '.lua':
+        source = path.read_text(encoding='utf-8')
+        private_markers = ('UBKTimingProbe', 'ubkTimingProbe', 'UBKTIMINGPROBE',
+                           '/ubkperf', 'UBK timing active', 'UBK timing stopped',
+                           'RetryCollection', 'CancelPendingCollection', 'GetCollectionState')
+        if any(marker in source for marker in private_markers):
+            raise ValueError('Personal timing or mail hotfix code cannot ship: ' + relative)
     files.append({'path': relative, 'sha256': hashlib.sha256(path.read_bytes()).hexdigest(), 'baselineSha256': older_hashes(relative)})
 
 # Historical paths exist here only to retire and restore old local code.

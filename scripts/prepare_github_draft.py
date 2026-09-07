@@ -4,10 +4,13 @@ import json
 import os
 from pathlib import Path
 import re
+import sys
 import urllib.parse
 import urllib.request
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from scripts.release_metadata import load_release_config
 
 def require_draft(release):
     if release.get('draft') is not True or release.get('published_at') is not None:
@@ -22,7 +25,7 @@ def draft_payload(config, commit, body):
                 prerelease=False, make_latest='false', generate_release_notes=False)
 
 def main():
-    config = json.loads((ROOT / 'release.json').read_text())
+    config = load_release_config(ROOT)
     repo = os.environ['GITHUB_REPOSITORY']
     commit = os.environ.get('UBK_RELEASE_COMMIT') or os.environ['GITHUB_SHA']
     if not re.fullmatch(r'[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+', repo) or not re.fullmatch(r'[0-9a-f]{40}', commit):

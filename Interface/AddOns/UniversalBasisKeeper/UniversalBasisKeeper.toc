@@ -2,7 +2,7 @@
 ## Title: Universal Basis Keeper
 ## Notes: Acquisition costs, cost coverage, crafting tools, prospecting, watchlists, and market workspaces for TBC Anniversary.
 ## Author: UBK contributors
-## Version: 1.6
+## Version: 1.6.1a
 ## RequiredDeps: TradeSkillMaster
 ## OptionalDeps: TradeSkillMaster_AppHelper, Auctionator
 ## SavedVariables: UniversalBasisKeeperDB, UBKInterfaceDB, UBKScannersDB

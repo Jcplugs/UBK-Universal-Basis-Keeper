@@ -1,6 +1,6 @@
 # Universal Basis Keeper — User Guide
 
-Version 1.6 · WoW TBC Anniversary
+Version 1.6.1a · WoW TBC Anniversary
 
 **Every item has a price. Your inventory has a story.**
 
@@ -20,7 +20,9 @@ The folder must retain its `_anniversary_` name; other Classic/Retail folders an
 
 This installer serves new and existing users. It includes no player's operations, prices, inventory, or history. Unknown addon/loader edits stop installation rather than being overwritten. Opening the installer alone changes nothing. Administrator rights are needed only if your selected folder's permissions require them.
 
-Version 1.6 is the complete addon, including these changes. Use the EXE to install or update it; copying the addon folder alone does not install its TSM integration. `source.zip` is provided for reading and rebuilding. If you downloaded only source, build an installer using `BUILD.txt`, then run that installer.
+Version 1.6.1a is the complete addon, including these changes. Use the EXE to install or update it; copying the addon folder alone does not install its TSM integration. `source.zip` is provided for reading and rebuilding. If you downloaded only source, build an installer using `BUILD.txt`, then run that installer.
+
+**Upgrading from 1.6:** run the new installer even if the addon already loads. The performance update includes the UBK-owned TSM integration as well as the addon. Keep your existing SavedVariables and operations; no reset or new configuration is required. The earlier prospecting hotfix is included.
 
 ## First visit
 
@@ -49,6 +51,8 @@ Cost Coverage separates missing evidence from known material costs. Use its **Na
 An unknown quantity is not treated as free. A market listing is not proof of what you paid. UBK records buyer-mail receipts while you collect, and uses TSM's recorded transactions for AH, vendor, and trade purchases. Automatic basis settlement waits until transaction windows close. Reopening one postpones settlement again. Cost Coverage and tooltips identify pending accounting and continue showing the last settled basis until the batch finishes. Trade or other acquisitions without recorded cost evidence remain unresolved. A tooltip's AH-listings status describes market data, separately from acquisition basis.
 
 The same capture-then-settle behavior applies to loot windows. Large purchase histories are prepared in small steps between frames; repeated bag events share one queued settlement. A normal logout or reload retains receipt evidence and resumes pending accounting after login. A client crash can lose changes WoW has not saved. Prospecting keeps its separate recorded-session settlement after reload.
+
+Version 1.6.1a reuses unchanged purchase history and avoids rebuilding the tracked-material list during tooltip/status reads. Changes recorded by TSM refresh that history for the next accounting pass. The settled values and evidence requirements remain the same. This public release retains TSM's existing mail collection behavior.
 
 Optional local preference: `/ubk mail tooltips off` hides common item tooltip windows while the mailbox is open and skips UBK's tooltip additions there. `/ubk mail tooltips on` restores normal behavior. This preference is not enabled for other users by the installer and does not change item costs.
 
@@ -151,7 +155,7 @@ Existing gem pools keep their prior cost, then receive the settled quantities an
 
 Pending output types are withheld from Sell Above Basis, including bulk selection and stale confirmation. A session that becomes pending after its TSM queue was priced is also blocked at final processing. Return Items remains available. Start a fresh selling scan after settlement. This does not undo already-posted auctions or block every other manual crafting/selling route.
 
-Incomplete cast/loot evidence, uncertain delivery, or outputs leaving before settlement remain pending for review. Reload cannot repair missing evidence. Version 1.6 does not include a general historical reconstruction tool; preserve the recorded data and report the issue with the version and full message.
+Incomplete cast/loot evidence, uncertain delivery, or outputs leaving before settlement remain pending for review. Reload cannot repair missing evidence. Version 1.6.1a does not include a general historical reconstruction tool; preserve the recorded data and report the issue with the version and full message.
 
 ## Position Intelligence
 

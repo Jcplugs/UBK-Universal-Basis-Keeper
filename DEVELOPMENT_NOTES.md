@@ -1,6 +1,14 @@
-# Development notes — Universal Basis Keeper 1.6
+# Development notes — Universal Basis Keeper 1.6.1a
 
 This public source tree contains generic addon, integration, installer, documentation, and test code. It contains no player snapshot or seeded purchase history. See `UBK_RELEASE_NOTES.txt` for the user-facing changes since 1.4.
+
+## 1.6.1a performance maintenance
+
+The tracked-material order keeps a membership lookup alongside its ordered array. Seed hydration no longer linearly searches the existing list for every item; discovery resets clear both structures. Tooltip and accounting-status readers use the current realm database without repeating seed hydration. These readers continue to see live settled values rather than storing a second copy of basis data.
+
+The existing UBK-owned TSM bridge caches the purchase CSV export and invalidates it on transaction-table updates, including changes to combined purchase rows. The next request rebuilds the export from current data. Its query omits group joins and virtual display fields while retaining the native purchase columns and current-realm filter. Existing receipt matching and ledger settlement rules are retained.
+
+The public installer still supplies the bridge, loader entry, native sources, and group-return recovery. This release does not replace TSM's mailing or accounting-mail modules. Temporary diagnostic instrumentation is excluded from the public addon.
 
 ## Cost evidence and live receipts
 
@@ -28,7 +36,7 @@ Name search spans pages on Positions, Coverage, and Sell Above Basis. Bulk selec
 
 ## Distribution and maintenance
 
-The installer serves fresh and existing users, verifies file compatibility, preserves local saved data, and records backups. Version 1.6 is delivered as a complete installer for new and existing users. Source is supplied for review and rebuilding, not for copying directly into AddOns. The installer applies both UBK and its checked TSM integration.
+The installer serves fresh and existing users, verifies file compatibility, preserves local saved data, and records backups. Version 1.6.1a is delivered as a complete installer for new and existing users. Source is supplied for review and rebuilding, not for copying directly into AddOns. The installer applies both UBK and its checked TSM integration.
 
 Build from the generic source tree. Preserve the separation between public source placeholders and data generated from a user's installed TSM. No build action implies permission to publish or install into a live client.
 

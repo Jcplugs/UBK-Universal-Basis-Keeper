@@ -1,10 +1,20 @@
-UNIVERSAL BASIS KEEPER — UBK 1.6
+UNIVERSAL BASIS KEEPER — UBK 1.6.1a
 Every item has a price. Your inventory has a story.
 
 COMPLETE ADDON — FOR TBC ANNIVERSARY REALMS ONLY
 The TradeSkillMaster addon is required. UBK does not work without it.
-Version 1.6 includes the complete addon and its TSM integration. New and
+Version 1.6.1a includes the complete addon and its TSM integration. New and
 existing users install through the EXE; no separate patch is needed.
+
+WHAT CHANGED IN 1.6.1a
+Less repeated purchase-history and tooltip work during everyday play. New
+transaction data still reaches normal accounting. The existing TSM integration
+and its features are retained; TSM's mailing behavior is unchanged.
+
+UPGRADING FROM 1.6
+Run the new installer even if UBK already loads. This release updates both the
+addon and its TSM integration. Keep your basis history, settings, and operations;
+no saved-data reset is needed. The earlier prospecting hotfix is included.
 
 INSTALL OR UPDATE
 1. Install the TradeSkillMaster addon for WoW TBC Anniversary first.

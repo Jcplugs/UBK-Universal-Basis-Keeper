@@ -1,4 +1,4 @@
--- UBK interface v1.6
+-- UBK interface v1.6.1a
 -- All interface functions are part of Universal Basis Keeper.
 -- Does not own acquisition accounting and never auto-buys / bids / posts / cancels.
 
@@ -6,7 +6,7 @@ local ADDON = ...
 local frame = CreateFrame("Frame")
 local API
 local UI = { rows = {}, page = "home", radarFilter = "ALL", selectedItem = nil, radarPage = 1, listPage = 1, shredMode = "opportunities", coverageFilter = "all", positionFilter = "QUICK", chumSelected = nil, chumFilter = "LEADS", homeStatus = nil, detailParent = nil, crossFilter = "ALL", crossDetailKey = nil, testArenaSession = nil, testArenaReturnView = nil }
-local VERSION = "1.6"
+local VERSION = "1.6.1a"
 local ROWS = 15
 
 -- Universal UBK layout canvas. The entire workshop is always laid out at one

@@ -1,3 +1,23 @@
+Universal Basis Keeper 1.6.1a — 7 September 2026
+Performance maintenance
+
+- Reuses UBK's TSM purchase-history export until transaction data changes,
+  including updates to combined purchase rows. New data is read on the next
+  accounting pass; receipt matching and cost settlement remain in place.
+- Removes unnecessary group/display joins from that export.
+- Uses a tracked-item membership lookup to avoid repeated list searches.
+- Reads the current settled database for tooltip and accounting status without
+  repeating material seed hydration.
+- Keeps the existing installer-managed TSM integration, native cost sources,
+  crafting, Sell Above Basis, and group-return recovery.
+- Retains TSM's original mailing behavior in the public package.
+- Excludes temporary performance diagnostics from the public addon.
+- Includes the 1.6 prospecting hotfix documented below.
+
+Upgrade: close WoW normally and run the 1.6.1a installer, even if UBK already
+loads. Both the addon and its TSM integration need this update. Existing local
+basis history, settings, and operations are preserved. No data reset is needed.
+
 Prospecting hotfix 1 — 7 September 2026
 Fixes a Lua error that interrupted prospecting cost capture and settlement.
 Existing 1.6 users: close WoW and run the updated installer, then reload after

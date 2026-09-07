@@ -11,9 +11,11 @@ class DraftReleaseTest(unittest.TestCase):
             with self.assertRaises(RuntimeError): draft.require_draft(value)
         draft.require_draft({'draft':True,'published_at':None})
     def test_payload_never_publishes_or_marks_latest(self):
-        config={'draft':True,'tag':'v1.6','title':'UBK 1.6'}
+        config={'draft':True,'tag':'v1.6.1a','title':'UBK 1.6.1a'}
         payload=draft.draft_payload(config,'a'*40,'notes')
         self.assertIs(payload['draft'],True)
+        self.assertEqual(payload['tag_name'], 'v1.6.1a')
+        self.assertEqual(payload['name'], 'UBK 1.6.1a')
         self.assertEqual(payload['make_latest'],'false')
         config['draft']=False
         with self.assertRaises(RuntimeError): draft.draft_payload(config,'a'*40,'notes')

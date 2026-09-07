@@ -1,7 +1,7 @@
-UNIVERSAL BASIS KEEPER 1.6 — BUILDING FROM SOURCE
+UNIVERSAL BASIS KEEPER 1.6.1a — BUILDING FROM SOURCE
 
 UBK requires TradeSkillMaster and supports TBC Anniversary realms only.
-New and existing users install the complete addon through UBK-1.6-Setup.exe.
+New and existing users install the complete addon through UBK-1.6.1a-Setup.exe.
 This source archive is for inspection and rebuilding; copying its addon folder
 into WoW does not install the required TSM integration.
 
@@ -13,7 +13,7 @@ WINDOWS BUILD REQUIREMENTS
 BUILD
 Extract all of source.zip to one folder. Run Build.cmd from that folder.
 It delegates to installer/Build-Release.ps1, rebuilds the verified payload,
-compiles UBK-1.6-Setup.exe into the source root, and runs temporary fixture tests.
+compiles UBK-1.6.1a-Setup.exe into the source root, and runs temporary fixture tests.
 It does not install into a WoW client. To install, close WoW and run that EXE.
 
 If you already have the release EXE, no build is required.
@@ -37,6 +37,10 @@ See VERIFICATION.txt for the recorded checks for this revision and
 STRESS-TESTS.md for live WoW checks. Installer self-tests use temporary fixtures;
 passing them does not launch WoW or certify in-game behavior.
 
+Version 1.6.1a retains the installer-managed TSM integration. Its purchase-history
+optimization belongs to the UBK-owned bridge; do not replace TSM's mailing or
+accounting-mail modules when packaging this public release.
+
 Exclude account SavedVariables, inventory snapshots, locally generated data,
-and private working files from a release. Building or preparing a draft does
-not publish a release or install it into a live client.
+diagnostic instrumentation, and private working files from a release. Building
+or preparing a draft does not publish a release or install it into a live client.

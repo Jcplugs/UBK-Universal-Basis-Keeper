@@ -1,11 +1,20 @@
-# UBK 1.6 — focused live tests
+# UBK 1.6.1a — focused live tests
 
 Start with **START-HERE.txt** and run the installer while WoW is closed.
 The installer updates UBK and its TSM integration and preserves a backup. These
-are live checks for behavior already implemented; source tests have passed.
+are live checks for behavior already implemented. See VERIFICATION.txt for the
+completed automated checks and any remaining live checks for this revision.
+
+An initial player check reported no stutter during ordinary town movement after
+the performance fix. Repeat the workflows below on the public build. The public
+package retains TSM's original mail handling, so that observation does not
+establish any change to mail-error recovery.
 
 | Priority | Action | Expected result |
 |---|---|---|
+| 1 — town and tooltips | With a long TSM purchase history, run around town for several minutes. Hover tracked items, the mailbox, and the banker, then leave tooltips open. | Repeated UBK history rebuilds and tooltip/status seed hydration no longer interrupt these reads. Report remaining pauses with the action and error, if present. |
+| 1 — changed history | Note a familiar item's quantity and basis. Refresh without transactions, then collect another purchase, including one that TSM combines with an existing row. Close the mailbox and let accounting settle. | Unchanged history is reused; the new or updated transaction is read on the next accounting pass. Quantity and actual cost update once, without stale cached totals or duplicate purchases. |
+| 1 — integration upgrade | Install 1.6.1a over a working 1.6 setup while WoW is closed. Check native sources, a familiar recipe, and a small Sell Above Basis selection followed by Return Items. | Both addon and bridge are updated. Saved basis, settings, and personal operations remain intact; source values, crafting costs, and original-group return still work. |
 | 1 — purchases | Record Dawnstone / Nightseye's known quantity and basis. Collect a few bought gems individually, then a batch. Keep a tooltip open during collection. | While mail is open, accounting stays pending. Close the mailbox: each newly accounted purchase contributes its actual price and quantity in the batch. Existing stock blends with purchases. Same-price purchases may increase quantity without visibly changing the average. The settled tooltip updates without duplicate lines. |
 | 1 — capture windows | Buy at the AH, collect mail, purchase vendor supplies, and complete a recorded paid trade. Close each transaction window, including walking away from the mailbox and using the TSM close button. Try reopening during settlement. | No automatic basis changes while any transaction window is open. Closing the last window queues settlement; reopening postpones it without losing receipt evidence. Missing paid-trade evidence stays unresolved. |
 | 1 — responsiveness | Collect a full bought-mail batch with long TSM history, then run a normal TSM AH browse/post scan. Optionally enable `/ubk mail tooltips off`. | No UBK per-invoice history scan while collecting; no automatic UBK reconciliation while the AH is open. Tooltip preference applies only at the mailbox. Record any remaining hitch or Lua timeout with its stack. |

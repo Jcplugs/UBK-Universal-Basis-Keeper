@@ -1,8 +1,8 @@
 # UBK - Universal Basis Keeper
 
-**1.6 prospecting hotfix 1 (7 September):** fixes a Lua error in prospecting cost capture and settlement. Existing 1.6 users should close WoW and run the updated installer.
+**1.6.1a performance update:** reduces repeated purchase-history and tooltip work that could interrupt play. Close WoW and run the updated installer to update both UBK and its TSM integration.
 
-Version 1.6 • TBC Anniversary
+Version 1.6.1a • TBC Anniversary
 
 **Every item has a price. Your inventory has a story.**
 
@@ -18,7 +18,7 @@ TSM's Desktop Application is **optional and recommended**. UBK can track costs w
 
 ## Install and take a first look
 
-Download the [installer](installer.exe), [complete source ZIP](source.zip), or [full download folder](https://github.com/Jcplugs/UBK-Universal-Basis-Keeper/blob/main/UBK-1.6.zip). The standalone addon is in [Interface/AddOns/UniversalBasisKeeper](Interface/AddOns/UniversalBasisKeeper).
+Download the [installer](installer.exe), [complete source ZIP](source.zip), or [full download folder](https://github.com/Jcplugs/UBK-Universal-Basis-Keeper/releases/download/v1.6.1a/UBK-1.6.1a.zip). The standalone addon is in [Interface/AddOns/UniversalBasisKeeper](Interface/AddOns/UniversalBasisKeeper).
 
 1. Close WoW and run `installer.exe` for a new installation or an update.
 2. Choose the `_anniversary_` client folder containing `WowClassic.exe` and `Interface`. The installer checks for TSM, backs up supported old code, and preserves your local history and settings.
@@ -28,6 +28,14 @@ Download the [installer](installer.exe), [complete source ZIP](source.zip), or [
 The EXE installs the complete addon and its TSM integration for new and existing users. You can also copy the supplied `Interface/AddOns/UniversalBasisKeeper` folder into your client. If the required integration is missing, UBK warns after login; close WoW and run `installer.exe` to complete it. The `source.zip` archive contains the complete build source.
 
 Installing UBK does not rewrite all your personal TSM operations. The [User Guide](USER_GUIDE.md) explains how to connect them.
+
+## New in 1.6.1a
+
+UBK reuses unchanged purchase history and reads settled tooltip/status data without rebuilding the tracked-material list. When TSM records a transaction change, the purchase export is refreshed for the next accounting pass. This reduces repeated work during ordinary movement and item interactions while keeping new purchases available for settlement.
+
+The existing installer-managed TSM integration remains required. Native cost sources, crafting, Sell Above Basis, and group-return recovery keep their existing workflows. TSM's mailing behavior is unchanged by this public release.
+
+When upgrading from 1.6, run the new installer even if UBK already loads: this update includes its TSM integration. Your saved basis history, settings, and operations remain in place. The earlier 1.6 prospecting hotfix is included.
 
 ## Position Intelligence: put your holdings to work
 

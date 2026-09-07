@@ -1,4 +1,4 @@
-# Universal Basis Keeper — UBK 1.6
+# Universal Basis Keeper — UBK 1.6.1a
 
 **Every item has a price. Your inventory has a story.**
 
@@ -22,6 +22,14 @@ TSM's Desktop Application is **optional and recommended**. UBK can track costs w
 The EXE installs the complete addon and its TSM integration for new and existing users. You can also copy the supplied `Interface/AddOns/UniversalBasisKeeper` folder into your client. If the required integration is missing, UBK warns after login; close WoW and run `installer.exe` to complete it. The `source.zip` archive contains the complete build source.
 
 Installing UBK does not rewrite all your personal TSM operations. The [User Guide](USER_GUIDE.md) explains how to connect them.
+
+## New in 1.6.1a
+
+UBK reuses unchanged purchase history and reads settled tooltip/status data without rebuilding the tracked-material list. When TSM records a transaction change, the purchase export is refreshed for the next accounting pass. This reduces repeated work during ordinary movement and item interactions while keeping new purchases available for settlement.
+
+The existing installer-managed TSM integration remains required. Native cost sources, crafting, Sell Above Basis, and group-return recovery keep their existing workflows. TSM's mailing behavior is unchanged by this public release.
+
+When upgrading from 1.6, run the new installer even if UBK already loads: this update includes its TSM integration. Your saved basis history, settings, and operations remain in place. The earlier 1.6 prospecting hotfix is included.
 
 ## Position Intelligence: put your holdings to work
 

@@ -1,4 +1,4 @@
--- UBK v1.6
+-- UBK v1.6.1a
 --
 -- TBC Anniversary companion with first-run TSM import/review.
 -- Account-wide, faction-aware acquisition-basis engine for every purchased item, with optional TSM material integration.
@@ -128,13 +128,13 @@ local mailLootHook = {
 -- Materials are discovered from the local TSM material table after login.
 local BASIS_SEEDS = {}
 
-local BASIS_ORDER = {}
+local BASIS_ORDER = {_seen={}}
 
 local function EnsureOrderItem(itemString)
-    for _, existing in ipairs(BASIS_ORDER) do
-        if existing == itemString then return end
-    end
+    -- Hydration revisits every known item. Membership must stay constant-time.
+    if BASIS_ORDER._seen[itemString] then return end
     BASIS_ORDER[#BASIS_ORDER + 1] = itemString
+    BASIS_ORDER._seen[itemString] = true
 end
 
 local function IsLiteralMoney(text)
@@ -3440,7 +3440,7 @@ local function PrintMailStatus(audit)
 end
 
 local function PrintStatus()
-    print("|cff33ff99UBK build:|r v1.6 - dock + basis/provenance + ledger intelligence + scanner inputs + transformation accounting")
+    print("|cff33ff99UBK build:|r v1.6.1a - dock + basis/provenance + ledger intelligence + scanner inputs + transformation accounting")
     TryLegacyMigration(true)
     local db = GetRealmDB()
     ApplyHistoricalCostAudit(db, true)
@@ -4936,7 +4936,7 @@ local function GoblinCreateUI()
     end
     panel.footer = panel:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
     panel.footer:SetPoint("BOTTOMLEFT", 14, 12)
-    panel.footer:SetText("UBK v1.6: basis + live shelf + TSM AuctionDB context • candidate only; never buys")
+    panel.footer:SetText("UBK v1.6.1a: basis + live shelf + TSM AuctionDB context • candidate only; never buys")
     panel:Hide()
     goblinRuntime.panel = panel
 end
@@ -5052,8 +5052,9 @@ function UBK_AddBasisToTooltip(tooltip)
     local itemString = "i:" .. tostring(tonumber(itemID))
     if IsUniversalExcluded(itemString) then return end
     if tooltip.__ubkBasisItem == itemString then return end
+    local db = _G.UBKInternal.PeekRealmDB()
+    if not db then return end
     tooltip.__ubkBasisItem = itemString
-    local db = GetRealmDB()
     local state = db and db.items and db.items[itemString] or nil
     local known = state and (tonumber(state.qty) or 0) or 0
     local unresolved = state and (tonumber(state.bootstrapUnresolved) or 0) or 0
@@ -5125,7 +5126,7 @@ function UBK_InstallTooltipHooks()
                 if self.__ubkBasisElapsed<0.20 or not self.__ubkLiveBasis then return end
                 self.__ubkBasisElapsed=0
                 local item=self.__ubkBasisItem
-                local db=item and GetRealmDB()
+                local db=item and _G.UBKInternal.PeekRealmDB()
                 if db then _G.UBKLiveTooltip.Render(self,db.items[item],item,GetUnitBasis,FormatMoney) end
             end)
         end
@@ -5995,7 +5996,7 @@ end
 -- keeping SavedVariables internals private. Companion addons should use this table
 -- rather than reaching into UniversalBasisKeeperDB directly.
 _G.UniversalBasisKeeperAPI = _G.UniversalBasisKeeperAPI or {}
-_G.UniversalBasisKeeperAPI.version = "1.6"
+_G.UniversalBasisKeeperAPI.version = "1.6.1a"
 _G.UBKAPI = _G.UniversalBasisKeeperAPI
 _G.UniversalBasisKeeperAPI.realmKey = REALM_KEY
 _G.UniversalBasisKeeperAPI.realmName = REALM_NAME
@@ -6639,6 +6640,13 @@ _G.UBKInternal = _G.UBKInternal or {}
 function _G.UBKInternal.GetRealmDB()
     return GetRealmDB()
 end
+-- Display-only reads use initialized state; discovery and accounting own hydration.
+function _G.UBKInternal.PeekRealmDB()
+    local root=_G.UniversalBasisKeeperDB
+    local db=type(root)=="table" and type(root.realms)=="table" and root.realms[REALM_KEY] or nil
+    if type(db)~="table" or type(db.items)~="table" then return nil end
+    return db
+end
 
 function _G.UBKInternal.ShelfCommand(rest)
     local ss = EnsureShelfScoutState(GetRealmDB())
@@ -6677,7 +6685,7 @@ function _G.UBKInternal.ShelfCommand(rest)
 end
 
 function _G.UBKInternal.Help()
-    print("|cffffcc00UBK 1.6 - Universal Basis Keeper:|r")
+    print("|cffffcc00UBK 1.6.1a - Universal Basis Keeper:|r")
     print("  /ubk                              open the UBK Home page")
     print("  /ubk dock                         open the compact basis dock")
     print("  /ubk interface                           open the UBK interface")
@@ -6760,6 +6768,7 @@ function _G.UBKSetupInternal.ResetDiscoveryForSetup(db,mode)
     -- Runtime discovery names are rebuilt from the current TSM faction-realm table.
     for k in pairs(BASIS_SEEDS) do BASIS_SEEDS[k]=nil end
     for i=#BASIS_ORDER,1,-1 do BASIS_ORDER[i]=nil end
+    BASIS_ORDER._seen={}
 end
 function _G.UBKSetupInternal.SetupBegin(mode,quiet)
     local db=GetRealmDB(); db.setup=type(db.setup)=="table" and db.setup or {}
@@ -7067,7 +7076,7 @@ function _G.UBKInternal.ScheduleReceiptRefresh()
     _G.UBKInternal.ScheduleAccountingSettlement()
 end
 function _G.UBKInternal.AccountingStatus()
-    return _G.UBKPurchaseLedger.Status(GetRealmDB())
+    return _G.UBKPurchaseLedger.Status(_G.UBKInternal.PeekRealmDB())
 end
 function _G.UBKInternal.ScheduleRefresh()
     _G.UBKInternal.ScheduleAccountingSettlement()
@@ -7422,7 +7431,7 @@ events:SetScript("OnEvent", function(_, event, addonName)
         if not mc.armed then
             mailboxBaselinePending = true
             mailLootHook.captureArmed = false
-            print("|cffffcc00UBK 1.6:|r mailbox detected; baselining existing mail before capture is armed...")
+            print("|cffffcc00UBK 1.6.1a:|r mailbox detected; baselining existing mail before capture is armed...")
             if type(CheckInbox) == "function" then CheckInbox() end
             C_Timer.After(MAIL_BASELINE_DELAY, function()
                 if mailboxSessionOpen and mailboxBaselinePending then

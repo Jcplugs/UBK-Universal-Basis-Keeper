@@ -1,7 +1,7 @@
 -- UBK Basis Dock: a small accounting summary and shortcuts into the UBK workspace.
 -- This module reads current core/cache data only; it does not index sale history.
 
-local VERSION = "1.6"
+local VERSION = "1.6.1a"
 local UI = {page="home", pages={}, nav={}}
 
 local function Core()

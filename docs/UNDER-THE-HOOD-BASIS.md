@@ -10,6 +10,8 @@ For tracked stock with trusted acquisition evidence, unit basis is the known-cos
 
 Paid purchases enter through TSM Accounting or captured AH buyer-mail evidence. UBK matches overlapping evidence so the same purchase is not counted twice, including when a live TSM purchase row grows as more units arrive. Open tooltips refresh when the recorded cost or quantity changes.
 
+Version 1.6.1a reuses the bridge's purchase export until TSM transaction data changes. Tooltip and status reads use the current settled database without repeating material setup. These changes reduce repeated work; purchase matching, evidence requirements, and the meaning of basis remain the same.
+
 A retained purchase average is useful history, but it is not automatically proof of the price of every unexplained item. Missing history and ambiguous inventory changes remain review work. Explicit player resolutions record the cost the player confirms.
 
 Farmed or looted values can be working valuations rather than paid prices. UBK labels those origins. Its existing non-grey loot rule can use 95% of pre-loot basis; that is an imputation, not a receipt. Grey vendor trash is excluded from routine coverage review, and its World Drop / Farmed action uses vendor sell value when known.

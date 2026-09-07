@@ -1,9 +1,9 @@
--- UBK Scanners v1.6
+-- UBK Scanners v1.6.1a
 -- Candidate discovery lives here. UBK owns accounting facts; UBK owns action
 -- presentation. This module never buys, bids, posts, cancels, or mutates TSM.
 
 local ADDON = ...
-local VERSION = "1.6"
+local VERSION = "1.6.1a"
 local frame = CreateFrame("Frame")
 local cache = {rows=nil, realmTime=nil, regionTime=nil, scope=nil, builtAt=0}
 

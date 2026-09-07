@@ -1,7 +1,8 @@
 {
-  "version": "1.6",
-  "tag": "v1.6",
-  "title": "UBK - Universal Basis Keeper 1.6",
+  "version": "1.6.1a",
+  "windows_version": "1.6.1.1",
+  "tag": "v1.6.1a",
+  "title": "UBK - Universal Basis Keeper 1.6.1a",
   "draft": true,
-  "draft_revision": 10
+  "draft_revision": 1
 }

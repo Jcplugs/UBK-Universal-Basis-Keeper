@@ -1,17 +1,17 @@
 """Keep repository downloads identical to the tested draft release assets."""
 import base64
-import json
 import os
 from pathlib import Path
 import shutil
 import subprocess
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from scripts.release_metadata import load_release_config
 
 def main():
-    config = json.loads((ROOT / 'release.json').read_text())
-    if config.get('draft') is not True:
-        raise RuntimeError('Download synchronization requires the draft build')
+    config = load_release_config(ROOT)
     version = config['version']
     folder = ROOT / 'dist' / f'UBK-{version}'
     for source, target in (

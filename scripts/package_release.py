@@ -3,9 +3,12 @@ from pathlib import Path
 import hashlib
 import json
 import shutil
+import sys
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from scripts.release_metadata import validate_build_versions
 SOURCE_DIRS = {'addon', 'installer', 'tests', 'docs', 'scripts', '.github'}
 ROOT_FILES = {
     'README.md', 'README.txt', 'USER_GUIDE.md', 'UBK_RELEASE_NOTES.txt',
@@ -36,10 +39,11 @@ def archive(path, members):
             raise ValueError('ZIP verification failed')
 
 def main():
-    config = json.loads((ROOT / 'release.json').read_text())
+    config = validate_build_versions(ROOT)
     version = config['version']
-    if version != '1.6' or config['draft'] is not True:
-        raise ValueError('This packaging revision is for the UBK 1.6 draft')
+    manifest = json.loads((ROOT / 'manifest.json').read_text(encoding='utf-8'))
+    if manifest.get('version') != version:
+        raise ValueError('Rebuild the payload for this release before packaging')
     setup = ROOT / f'UBK-{version}-Setup.exe'
     if not setup.is_file() or setup.read_bytes()[:2] != b'MZ':
         raise ValueError('Build the Windows installer before packaging')

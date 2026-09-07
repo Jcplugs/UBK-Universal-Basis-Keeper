@@ -87,18 +87,39 @@ function B.GetBuyLedgerCSV()
     Check()
     local transactions=TSM.Accounting and TSM.Accounting.Transactions
     if not transactions or type(transactions.CreateQuery)~="function" then return nil end
+    if not B.buyLedgerWatch then
+        -- Observe the transaction table without executing a history query.
+        -- The callback invalidates both row inserts and changes to combined buys.
+        B.buyLedgerWatch=transactions.CreateQuery():ResetJoins():ResetVirtualFields()
+            :SetUpdateCallback(function() B.buyLedgerCSV=nil end)
+    end
+    if B.buyLedgerCSV then return B.buyLedgerCSV end
     local CSV=TSM.LibTSMUtil:Include("Format.CSV")
-    local query=transactions.CreateQuery():Equal("type","buy"):Equal("isCurrentRealm",true)
+    -- Accounting's general UI query joins every row to TSM's group database.
+    -- This export only uses native transaction columns; those joins add no data.
+    local query=transactions.CreateQuery():ResetJoins():ResetVirtualFields()
+        :Equal("type","buy"):Equal("isCurrentRealm",true)
         :Select("itemString","stackSize","quantity","price","otherPlayer","player","time","source")
+    local encoder
     local ok,result=pcall(function()
-        local encoder=CSV.EncodeStart({"itemString","stackSize","quantity","price","otherPlayer","player","time","source"})
+        encoder=CSV.EncodeStart({"itemString","stackSize","quantity","price","otherPlayer","player","time","source"})
         for _,item,stack,qty,price,seller,buyer,stamp,source in query:Iterator() do
             CSV.EncodeAddRowDataRaw(encoder,item,stack,qty,price,seller,buyer,stamp,source)
         end
-        return CSV.EncodeEnd(encoder)
+        local csv=CSV.EncodeEnd(encoder)
+        encoder=nil
+        return csv
     end)
-    query:Release()
-    if not ok then error(result) end
+    query:Release(not ok)
+    if not ok then
+        if encoder then
+            TempTable.Release(encoder.lineParts)
+            TempTable.Release(encoder.lines)
+            TempTable.Release(encoder)
+        end
+        error(result)
+    end
+    B.buyLedgerCSV=result
     return result
 end
 function B.BrowseItem(item)

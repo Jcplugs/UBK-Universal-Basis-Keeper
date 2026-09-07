@@ -68,6 +68,9 @@ assert(b.BrowseItem('i:22861') and selectedLink:find('22861'))
 selectedLink=nil;page='Auctioning';assert(not b.BrowseItem('i:22861') and selectedLink==nil,'Handoff went to Auctioning')
 page='Browse';busy=true;assert(not b.BrowseItem('i:22861'));busy=false
 local released=false;local filters={};local query={}
+function query:ResetJoins()return self end
+function query:ResetVirtualFields()return self end
+function query:SetUpdateCallback(fn)self.callback=fn;return self end
 function query:Equal(k,v)filters[k]=v;return self end
 function query:Select(...)self.fields={...};return self end
 function query:Iterator()local done=false;return function()if done then return end;done=true;return 1,'i:23425',1,95,200,'Seller','Buyer',1000,'Auction' end end

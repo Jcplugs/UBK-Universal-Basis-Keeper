@@ -1,33 +1,41 @@
-PROSPECTING HOTFIX 1 - 7 September 2026
-Production Observe now consumes only the inventory quantity, excluding its
-boolean availability return. Regression and prospecting session tests use
-the two-return production contract. All local Lua fixtures and release-guard
-tests passed. Live WoW behavior remains to be confirmed.
-
-Universal Basis Keeper 1.6 — draft verification
+Universal Basis Keeper 1.6.1a - verification
+7 September 2026
 
 PASS: all 26 addon Lua files pass syntax checks.
-PASS: all 14 Lua behavior suites pass; see LUA_TEST_RESULTS.txt.
-The accounting batch regression covers 50,000 historical rows plus 90 new
-purchases in at most 300 rows per scheduled step, exact paid costs, duplicate
-claims, source-window deferral, event coalescing, reopen invalidation, and
-failed-read recovery, and actual core handling of interaction-manager mailbox
-closure (including duplicate legacy/modern notifications). This is a synthetic correctness check, not an in-game
-frame-time benchmark.
+PASS: all 17 Lua behavior suites pass; see LUA_TEST_RESULTS.txt.
+PASS: all 9 Python release and public-payload tests pass.
+PASS: payload validation checks version agreement, exact hashes, one public
+addon, complete TOC loading, and the public yield-data placeholder.
 
-These cover purchase delivery and replay, prospecting observation and settlement,
-unknown-cost resolution, pending-output posting controls, group recovery,
-material scans, source integration, ignore-list review, linking, and table search.
+The purchase-history cache regression verifies unchanged-history reuse,
+transaction insert/update/delete invalidation, combined quantities, duplicate
+rows, exact CSV columns and units, and recovery after failed exports.
+The display regression checks item ordering, duplicate prevention, setup reset,
+realm scoping, initialized tooltip/status reads, and preservation of cost data.
 
-PASS: draft-release tests reject published or ambiguous release state and
-require draft=true with make_latest=false. They make no network requests.
+Existing suites cover purchase delivery and replay, prospecting observation and
+settlement, pending-output posting controls, TSM sources, group recovery,
+material scans, linking, and table search. The accounting batch regression
+covers 50,000 historical rows plus 90 new purchases with at most 300 rows per
+scheduled step. These are synthetic correctness checks, not frame-time
+benchmarks.
 
-The installer build runs isolated temporary-client fixtures and writes
-INSTALLER_TEST_RESULTS.txt. It never installs into a real WoW folder during
-these tests. The payload builder checks version agreement, exact file hashes,
-complete TOC loading, and the public yield-data placeholder.
+The required installer-managed TSM integration remains in place. The published
+1.6 payload is included as an accepted upgrade baseline. No personal TSM mail
+module patch or temporary UBK timing instrumentation is in the addon payload.
+TSM's normal mailing behavior is unchanged by this public update.
 
-Automated checks do not certify live WoW event timing or rendered UI.
-Use STRESS-TESTS.md for in-game mailbox, prospecting, scan and group-return
-checks before publishing the release. No live installation was performed
-while preparing this draft. Profit estimates are not sale guarantees.
+The Windows release build runs isolated temporary-client installation and
+upgrade fixtures before packaging. INSTALLER_TEST_RESULTS.txt records those
+results. These tests do not install into a real WoW folder.
+
+During diagnosis, repeated purchase-history exports took approximately
+0.8-0.9 seconds and coincided with long frames. After the same performance
+changes shipped here were applied, the affected player reported no stutter
+while moving around town. No numerical post-fix frame-time benchmark was
+recorded. That player also had a separate personal mail patch; its mailing
+results are not validation of this public build.
+
+Automated checks do not certify every live WoW interaction or rendered UI.
+STRESS-TESTS.md provides in-game validation scenarios. No live installation is
+performed by the release build. Profit estimates are not sale guarantees.

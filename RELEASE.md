@@ -1,6 +1,6 @@
-# UBK - Universal Basis Keeper 1.6
+# UBK - Universal Basis Keeper 1.6.1a
 
-**1.6 prospecting hotfix 1 (7 September):** fixes a Lua error in prospecting cost capture and settlement. Existing 1.6 users should close WoW and run the updated installer.
+**1.6.1a performance update:** reduces repeated purchase-history and tooltip work that could interrupt play. Close WoW and run the updated installer to update both UBK and its TSM integration.
 
 **Every item has a price. Your inventory has a story.**
 
@@ -10,11 +10,22 @@ UBK connects the cost of what you own with the decisions you make in TradeSkillM
 
 ## Download and install
 
-Download **UBK-1.6.zip** from this release and extract it. The folder includes **installer.exe**, **source.zip**, the standalone **Interface/AddOns/UniversalBasisKeeper** addon, and documentation.
+Download **UBK-1.6.1a.zip** from this release and extract it. The folder includes **installer.exe**, **source.zip**, the standalone **Interface/AddOns/UniversalBasisKeeper** addon, and documentation.
 
 Close WoW, run the installer, and select your `_anniversary_` client folder. The same installer handles new installations and updates, preserving supported local settings and history. Open WoW and type `/ubk`.
 
 Manual addon placement is available, but the installer supplies the required TSM integration. If that integration is missing, UBK plays the raid-warning sound and prints the repair instruction after login. Close WoW and run the installer to complete it.
+
+## What changed in 1.6.1a
+
+- Reuses the purchase-history export until TSM transaction data changes, and removes unnecessary display-data joins from that export.
+- Avoids repeated tracked-material list work during tooltip and accounting-status refreshes.
+- Preserves the existing TSM integration, native sources, crafting, temporary selling groups, and return recovery. TSM's normal mailing behavior remains unchanged.
+- Includes the earlier 1.6 prospecting cost-capture and settlement hotfix.
+
+A player who experienced repeated town freezes reported no stutter during ordinary movement after the performance fix. See VERIFICATION.txt for completed checks and STRESS-TESTS.md for the live validation scenarios.
+
+**Existing 1.6 users:** run this installer with WoW closed so both the addon and its TSM integration are updated. Keep your saved data and existing operations.
 
 ## Position Intelligence
 
