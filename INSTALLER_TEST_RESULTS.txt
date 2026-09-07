@@ -1,6 +1,6 @@
 UBK installer fixture results
 Executed against isolated temporary fixtures. No live WoW installation was changed.
-PASS: embedded manifest, allowed paths and every payload hash validated (version 1.6).
+PASS: embedded manifest, allowed paths and every payload hash validated (version 1.6.1a).
 PASS: TBC Anniversary folder required; other Classic/Retail branches and renamed client roots rejected before writes, even with a Classic executable and TSM folder present.
 PASS: dependency checked only in the selected client; no loader/version read for presence; missing TSM rejects before writes; Install blocked until present; rechecking a changed folder updates readiness; actual installer preview rendered off-screen.
 PASS: upgrade, missing addon, generated-data fallback and actual receipt hash, idempotence, intact SavedVariables/TSM sentinels, conflict rejection before mutation, reversible restore, failure rollback, preserving a concurrent external edit, forbidden paths, arbitrary fixture-path rejection, fresh install.
