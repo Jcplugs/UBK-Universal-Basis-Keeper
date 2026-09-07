@@ -1,0 +1,103 @@
+name: Publish verified UBK 1.6.1a
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/publish-v1.6.1a.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: ubk-draft-release
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.repository == 'Jcplugs/UBK-Universal-Basis-Keeper' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish the approved release and verify its tag
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: python
+        run: |
+          import json
+          import os
+          import re
+          import urllib.request
+
+          REPOSITORY = "Jcplugs/UBK-Universal-Basis-Keeper"
+          SOURCE_COMMIT = "11e63a27bd699e2019f6ebc2b82d63dd169590bd"
+          BUILD_RUN_ID = 34155725435
+          # Verified assets from the completed draft build identified below.
+          RELEASE_ID = 384282867
+          COMMIT = "94db8413e31f9d6e8cb2867b66cf965143d1b864"
+          EXPECTED = {
+              "installer.exe": {"size": 356864, "digest": "sha256:cb6e1be88123648ea0273dde5a76183ee6bea85d141f117142f87f6663d02532"},
+              "SHA256SUMS.txt": {"size": 5950, "digest": "sha256:d9040342c2c3db63d5ca46f6c68963f6fc04e305a6efdc9ac22c8dd43d7141e9"},
+              "source.zip": {"size": 3347150, "digest": "sha256:8cb6ea45fad416771f35b24b3453f7019736b6ee01f47f89035b45907e2dc4bd"},
+              "UBK-1.6.1a.zip": {"size": 6829918, "digest": "sha256:1c9f8b3d88cf525ccfcda581f747f7827457a2b8a4d980edc8f7297f759d0f65"},
+          }
+          REQUIRED_ASSETS = {"installer.exe", "source.zip", "SHA256SUMS.txt", "UBK-1.6.1a.zip"}
+          if (type(RELEASE_ID) is not int or RELEASE_ID <= 0
+                  or not re.fullmatch(r"[0-9a-f]{40}", COMMIT)
+                  or set(EXPECTED) != REQUIRED_ASSETS):
+              raise RuntimeError("Reviewed release ID, commit and asset hashes must be supplied")
+          for asset in EXPECTED.values():
+              if (set(asset) != {"size", "digest"}
+                      or type(asset["size"]) is not int or asset["size"] <= 0
+                      or not re.fullmatch(r"sha256:[0-9a-f]{64}", asset["digest"])):
+                  raise RuntimeError("Invalid reviewed asset metadata")
+          API = "https://api.github.com/repos/" + REPOSITORY
+          headers = {
+              "Authorization": "Bearer " + os.environ["GH_TOKEN"],
+              "Accept": "application/vnd.github+json",
+              "X-GitHub-Api-Version": "2022-11-28",
+              "User-Agent": "UBK-Approved-Publication",
+          }
+
+          def request(path, method="GET", payload=None):
+              data = json.dumps(payload).encode() if payload is not None else None
+              req = urllib.request.Request(API + path, data=data, method=method,
+                  headers={**headers, "Content-Type": "application/json"})
+              with urllib.request.urlopen(req, timeout=60) as response:
+                  return json.load(response)
+
+          def verify_release(release):
+              if (release["id"] != RELEASE_ID or release["tag_name"] != "v1.6.1a"
+                      or release["target_commitish"] != COMMIT):
+                  raise RuntimeError("Release identity, tag or prepared commit changed")
+              assets = release["assets"]
+              actual = {a["name"]: {"size": a["size"], "digest": a.get("digest")} for a in assets}
+              if (len(assets) != len(EXPECTED) or actual != EXPECTED
+                      or any(a["state"] != "uploaded" for a in assets)):
+                  raise RuntimeError("Release assets differ from the verified downloads")
+
+          repo = request("")
+          if repo["id"] != 1354307313 or repo["private"] or repo["full_name"] != REPOSITORY:
+              raise RuntimeError("The expected UBK repository must already be public")
+          run = request(f"/actions/runs/{BUILD_RUN_ID}")
+          if (run["id"] != BUILD_RUN_ID or run["status"] != "completed" or run["conclusion"] != "success"
+                  or run["head_sha"] != SOURCE_COMMIT or run["path"] != ".github/workflows/prepare-draft.yml"
+                  or run["head_branch"] != "main" or run["repository"]["id"] != 1354307313):
+              raise RuntimeError("The reviewed source commit did not complete the expected release build")
+          release = request(f"/releases/{RELEASE_ID}")
+          verify_release(release)
+          if release["draft"]:
+              if release["published_at"] is not None:
+                  raise RuntimeError("Unexpected draft publication state")
+              refs = request("/git/matching-refs/tags/v1.6.1a")
+              for ref in refs:
+                  if ref["ref"] == "refs/tags/v1.6.1a" and (ref["object"]["type"] != "commit" or ref["object"]["sha"] != COMMIT):
+                      raise RuntimeError("Existing v1.6.1a tag does not point to the prepared commit")
+              release = request(f"/releases/{RELEASE_ID}", "PATCH",
+                  {"draft": False, "prerelease": False, "make_latest": "true"})
+          final = request(f"/releases/{RELEASE_ID}")
+          verify_release(final)
+          if final["draft"] or not final["published_at"] or final["prerelease"]:
+              raise RuntimeError("Release publication was not confirmed")
+          tag = request("/git/ref/tags/v1.6.1a")
+          if tag["object"]["type"] != "commit" or tag["object"]["sha"] != COMMIT:
+              raise RuntimeError("Published release tag does not match the prepared commit")
+          print("Published: " + final["html_url"])
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as out:
+              out.write("Published [" + final["name"] + "](" + final["html_url"] + ").\n")
