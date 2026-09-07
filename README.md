@@ -16,7 +16,7 @@ TSM's Desktop Application is **optional and recommended**. UBK can track costs w
 
 ## Install and take a first look
 
-Download the [installer](installer.exe), [complete source ZIP](source.zip), or [full download folder](https://github.com/Jcplugs/UBK-Goblin/blob/main/UBK-1.6.zip). The standalone addon is in [Interface/AddOns/UniversalBasisKeeper](Interface/AddOns/UniversalBasisKeeper).
+Download the [installer](installer.exe), [complete source ZIP](source.zip), or [full download folder](https://github.com/Jcplugs/UBK-Universal-Basis-Keeper/blob/main/UBK-1.6.zip). The standalone addon is in [Interface/AddOns/UniversalBasisKeeper](Interface/AddOns/UniversalBasisKeeper).
 
 1. Close WoW and run `installer.exe` for a new installation or an update.
 2. Choose the `_anniversary_` client folder containing `WowClassic.exe` and `Interface`. The installer checks for TSM, backs up supported old code, and preserves your local history and settings.
@@ -41,11 +41,11 @@ These assessments use currently loaded TSM data. Open Market Inspector and scan 
 
 ### Follow an actual Khorium Bar examination
 
-In this session, a player reviews **83 Khorium Bars at 4.50g basis**, opens the assessment, then checks the **8.49g loaded reference** against a completed AH scan around **8.44g** and the actual TSM listings. [Follow the Khorium walkthrough](docs/KHORIUM-WALKTHROUGH.md) to see the recorded cost, estimated profit, live quote, and listings in sequence.
+These captures show a player reviewing **83 Khorium Bars at 4.50g basis**, opening the assessment, and comparing loaded references of **8.48–8.49g** with a completed AH scan around **8.44g** and the actual TSM listings. [Follow the Khorium walkthrough](docs/KHORIUM-WALKTHROUGH.md) to see the recorded cost, estimated profit, live quote, and listings. Prices vary slightly between the captures taken that morning.
 
 ![Position Intelligence with Khorium Bar's basis, price reference, profit per unit, quantity, and total profit](docs/screenshots/ubk-position-overview.png)
 
-![Khorium Bar's actual TSM Browse search and first visible listings](docs/screenshots/ubk-khorium-tsm-listings.png)
+![Khorium Bar's completed TSM Browse search, visible listings, and auction controls](docs/screenshots/ubk-khorium-tsm-listings.png)
 
 ## A cost is different from a sale price
 

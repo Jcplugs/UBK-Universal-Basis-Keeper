@@ -15,15 +15,15 @@ REPO = 'Jcplugs/UBK-Universal-Basis-Keeper'
 RELEASE_ID = 383815484
 OLD = {
     'installer.exe': 'a88b3930dd06b476219e24e4a441828fbe728de06ae7ad3d750108a4260c21bf',
-    'source.zip': '76d90c9277721473890e987c0838984dacf077de93090bbe24db46f39619405a',
-    'UBK-1.6.zip': '781bc614958fe55d66be52387f5a25711808053e521e5a519432a3caaab30502',
-    'SHA256SUMS.txt': '2e17e0a2a7c8d466566a46f8e834923e5e3fd5c5811eed39dc9682deb7eacecd',
+    'source.zip': '3124fbfae2df842f994889781e942fce968a14b713f26a7274a53d2c9ff0aa30',
+    'UBK-1.6.zip': '0986addb2136f9e8966d52f9ce6a74ef31667a98db0e7099d9d6296bb1879a6a',
+    'SHA256SUMS.txt': '2bebc813a3b724061295273a3f34762da345e992dbe924e5d15ea1d89cb3205c',
 }
 DOCS = ['README.md', 'RELEASE.md', 'docs/KHORIUM-WALKTHROUGH.md',
         'docs/screenshots/README.md']
-IMAGES = ['ubk-position-overview', 'ubk-khorium-recorded', 'ubk-khorium-tsm-listings']
-REMOVED = {'docs/screenshots/' + n + '.jpg' for n in IMAGES +
-           ['ubk-khorium-assessment', 'ubk-khorium-live-scan']}
+IMAGES = ['ubk-position-overview', 'ubk-khorium-assessment', 'ubk-khorium-recorded',
+          'ubk-khorium-live-scan', 'ubk-khorium-tsm-listings']
+REMOVED = {'docs/screenshots/' + n + '.jpg' for n in IMAGES}
 REMOVED.add('docs/screenshots/ubk-home.png')
 
 def digest(data):
